@@ -3,4 +3,16 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="bg_green">#27C084</color>
+    <color name="trancent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="line_color">#f1f1f1</color>
+    <color name="color_333">#333333</color>
+    <!--透明度50%-->
+    <color name="trancent_50">#7f000000</color>
+    <color name="tv_checked_bg">#F5F5F5</color>
+    <color name="tv_unchecked_bg">#FFFFFF</color>
+
+    <color name="srcColor">#ebebeb</color>
+
 </resources>

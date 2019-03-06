@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context="me.tmgg.viewsdemoapp.mall.MallIndexActivity">
+    <!--标题-->
+    <TextView
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="标题" />
+
+    <me.tmgg.viewsdemoapp.widgets.MyHoveringScrollView
+        android:id="@+id/view_hover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--车辆管理-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_gradient_carmanage"
+                android:orientation="vertical">
+                <!--未邦车布局-->
+                <include
+                    layout="@layout/include_no_bind_car"
+                    android:visibility="gone" />
+                <!--邦车布局-->
+                <include layout="@layout/include_have_car" />
+
+                <!--车辆情况三个tab-->
+                <include layout="@layout/include_3tabs_carmanage" />
+            </LinearLayout>
+            <!--三个广告图片-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/shop_goods_image1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="9dp">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/shop_goods_image1" />
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/shop_goods_image1" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--附近商家标题-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="附近商家"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_check_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:paddingTop="14dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="14dp"
+                    android:text="查看全部"
+                    android:textColor="#999999"
+                    android:textSize="13sp" />
+            </LinearLayout>
+            <!--附近商家横向列表-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_business"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:overScrollMode="never" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp" />
+            <!--标准洗车title，可固定顶部-->
+            <include layout="@layout/include_xiche_title" />
+            <!--商品列表-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_goods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never" />
+        </LinearLayout>
+    </me.tmgg.viewsdemoapp.widgets.MyHoveringScrollView>
+    <!--顶层的筛选布局-->
+    <LinearLayout
+        android:id="@+id/ll_top_window"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/trancent_50"
+        android:layout_below="@id/rl_title"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#ffffff">
+
+            <TextView
+                android:id="@+id/tv_tab_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="标准洗车"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_tab_jiantou1"
+                android:layout_width="12dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_tab_left"
+                android:adjustViewBounds="true"
+                android:src="@drawable/jiantou_black_14" />
+
+            <TextView
+                android:id="@+id/tv_tab_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/iv_tab_jiantou1"
+                android:text="全部地市"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_tab_jiantou2"
+                android:layout_width="12dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_tab_city"
+                android:adjustViewBounds="true"
+                android:src="@drawable/jiantou_black_14" />
+
+            <!--评分-->
+            <TextView
+                android:id="@+id/tv_tab_pingfen"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:paddingRight="15dp"
+                android:text="评分"
+                android:textColor="#333333"
+                android:textSize="13sp" />
+
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="1dp"
+                android:layout_height="14dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_toLeftOf="@id/tv_tab_pingfen"
+                android:background="#EBEBEB" />
+            <!--销量-->
+            <TextView
+                android:id="@+id/tv_tab_salesvolume"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/view_line"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:text="销量"
+                android:textColor="#27C084"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+        <!--洗车tab布局-->
+        <LinearLayout
+            android:id="@+id/ll_tab_xiche"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_left"
+                android:layout_width="0dp"
+                android:layout_height="337dp"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_right"
+                android:layout_width="0dp"
+                android:layout_height="337dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <!--城市tab展示布局-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_cities"
+            android:layout_width="match_parent"
+            android:layout_height="337dp"
+            android:visibility="gone" />
+        <View
+            android:id="@+id/view_outside"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

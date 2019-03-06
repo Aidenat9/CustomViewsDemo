@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+   android:paddingBottom="14dp"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="15dp"
+        android:layout_height="15dp" />
+
+    <FrameLayout
+        android:id="@+id/fl_drive"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/bg_gradient_first">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_alreadly_drive"
+                style="@style/tv_brown_12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="已行驶" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/tv_drive_nums"
+                    style="@style/tv_brown_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11000" />
+
+                <TextView
+                    android:id="@+id/tv_km"
+                    style="@style/tv_brown_11sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" km" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_goods"
+                style="@style/tv_white_11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_btn_darkbrown"
+                android:gravity="center"
+                android:paddingBottom="3.5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3.5dp"
+                android:text="正品保养" />
+
+        </LinearLayout>
+        <!--左上角图片-->
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/icon_left_label" />
+    </FrameLayout>
+
+
+    <View
+        android:layout_width="15dp"
+        android:layout_height="15dp" />
+    <FrameLayout
+        android:id="@+id/fl_nianjian"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/bg_gradient_first">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_nianjian"
+                style="@style/tv_brown_12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="距离年检" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/tv_day_nums"
+                    style="@style/tv_brown_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="145" />
+
+                <TextView
+                    android:id="@+id/tv_day"
+                    style="@style/tv_brown_11sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Day" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_shenche"
+                style="@style/tv_white_11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_btn_darkbrown"
+                android:gravity="center"
+                android:paddingBottom="3.5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3.5dp"
+                android:text="预约审车" />
+
+        </LinearLayout>
+        <!--左上角图片-->
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/icon_left_label" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="15dp"
+        android:layout_height="15dp" />
+    <FrameLayout
+        android:id="@+id/fl_xiche"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/bg_gradient_first">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_xiche"
+                style="@style/tv_brown_12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="附近洗车" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/tv_yuan_nums"
+                    style="@style/tv_brown_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.9" />
+
+                <TextView
+                    android:id="@+id/tv_yuan"
+                    style="@style/tv_brown_11sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Day" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_tehui"
+                style="@style/tv_white_11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_btn_darkbrown"
+                android:gravity="center"
+                android:paddingBottom="3.5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3.5dp"
+                android:text="特惠洗车" />
+
+        </LinearLayout>
+        <!--左上角图片-->
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/icon_left_label" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="15dp"
+        android:layout_height="15dp" />
+</LinearLayout>

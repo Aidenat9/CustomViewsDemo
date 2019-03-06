@@ -1,11 +1,52 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="QMUI.Compat">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
+
+
+
+    <!--商城里 行驶情况-->
+    <style name="tv_brown_11sp">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">#634E39</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="tv_brown_12sp">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#634E39</item>
+        <item name="android:includeFontPadding">false</item>
+
+    </style>
+    <style name="tv_brown_18sp">
+        <item name="android:textColor">#634E39</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:includeFontPadding">false</item>
+
+    </style>
+
+    <style name="tv_white_11sp">
+        <item name="android:textSize">11sp</item>
+        <item name="android:includeFontPadding">false</item>
+
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+
+    <style name="button_default_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">#9c27b0</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
 </resources>

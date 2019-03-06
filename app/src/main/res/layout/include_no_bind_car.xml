@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_please_add_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="14dp"
+        android:includeFontPadding="false"
+        android:text="添加您的爱车"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/iv_add_car"
+        android:layout_width="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@id/tv_please_add_car"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_add_car_mall" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_please_add_car"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:includeFontPadding="false"
+        android:textSize="14sp"
+        android:text="匹配合适的商品"
+        android:layout_marginBottom="14dp"
+        android:textColor="#333333" />
+
+    <FrameLayout
+        android:id="@+id/fl_next_car"
+        android:layout_width="46dp"
+        android:layout_height="28dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_next_car_mall" />
+    </FrameLayout>
+
+</RelativeLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/top"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/tv_xiche_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="标准洗车"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_jiantou1"
+            android:layout_width="12dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/tv_xiche_title"
+            android:adjustViewBounds="true"
+            android:src="@drawable/jiantou_black_14" />
+
+        <TextView
+            android:id="@+id/tv_xiche_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/iv_jiantou1"
+            android:text="全部地市"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_city_jiantou2"
+            android:layout_width="12dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/tv_xiche_city"
+            android:adjustViewBounds="true"
+            android:src="@drawable/jiantou_black_14" />
+
+        <!--评分-->
+        <TextView
+            android:id="@+id/tv_pingfen"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:paddingRight="15dp"
+            android:text="评分"
+            android:textColor="#333333"
+            android:textSize="13sp" />
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="1dp"
+            android:layout_height="14dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@id/tv_pingfen"
+            android:background="#EBEBEB" />
+        <!--销量-->
+        <TextView
+            android:id="@+id/tv_sales_volume"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/view_line"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:text="销量"
+            android:textColor="#27C084"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+</LinearLayout>
