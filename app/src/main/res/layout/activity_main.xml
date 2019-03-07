@@ -12,6 +12,21 @@
         style="@style/button_default_style"
         android:text="demo" />
 
+
+    <me.tmgg.viewsdemoapp.widgets.SinkFrameLayout
+        android:id="@+id/sfl"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:text="你好吗"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:layout_height="match_parent" />
+    </me.tmgg.viewsdemoapp.widgets.SinkFrameLayout>
     <Button
         android:id="@+id/btn_valueAnim"
         android:text="valueAnim"
@@ -20,6 +35,7 @@
 
     <me.tmgg.viewsdemoapp.widgets.LoadingText
         android:id="@+id/loadingText"
+        android:layout_marginTop="20dp"
         android:layout_width="100dp"
         android:layout_height="100dp" />
 

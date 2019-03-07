@@ -11,7 +11,7 @@ import me.tmgg.viewsdemoapp.bean.Point;
  * 包名：me.tmgg.viewsdemoapp.widgets.evaluator
  * <p>description:            </p>
  */
-public class ScaleAlhpaExecutor implements TypeEvaluator<Point> {
+public class ScaleAlhpaEvalutor implements TypeEvaluator<Point> {
     Point point = new Point();
     @Override
     public Point evaluate(float fraction, Point startValue, Point endValue) {

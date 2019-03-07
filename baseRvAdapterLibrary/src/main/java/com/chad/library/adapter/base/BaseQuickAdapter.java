@@ -1497,7 +1497,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     }
 
     /**
-     * set anim to start when loading
+     * set animator to start when loading
      *
      * @param anim
      * @param index
@@ -1582,7 +1582,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     /**
      * {@link #addAnimation(RecyclerView.ViewHolder)}
      *
-     * @param firstOnly true just show anim when first loading false show anim when load the data every time
+     * @param firstOnly true just show animator when first loading false show animator when load the data every time
      */
     public void isFirstOnly(boolean firstOnly) {
         this.mFirstOnlyEnable = firstOnly;

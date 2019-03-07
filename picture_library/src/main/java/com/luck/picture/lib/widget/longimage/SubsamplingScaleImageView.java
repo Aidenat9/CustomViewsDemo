@@ -127,9 +127,9 @@ public class SubsamplingScaleImageView extends View {
     public static final int ORIGIN_ANIM = 1;
     /** State change originated from touch gesture. */
     public static final int ORIGIN_TOUCH = 2;
-    /** State change originated from a fling momentum anim. */
+    /** State change originated from a fling momentum animator. */
     public static final int ORIGIN_FLING = 3;
-    /** State change originated from a double tap zoom anim. */
+    /** State change originated from a double tap zoom animator. */
     public static final int ORIGIN_DOUBLE_TAP_ZOOM = 4;
 
     // Bitmap (preview or full image)
@@ -1848,15 +1848,15 @@ public class SubsamplingScaleImageView extends View {
 
     private static class Anim {
 
-        private float scaleStart; // Scale at start of anim
-        private float scaleEnd; // Scale at end of anim (target)
+        private float scaleStart; // Scale at start of animator
+        private float scaleEnd; // Scale at end of animator (target)
         private PointF sCenterStart; // Source center point at start
         private PointF sCenterEnd; // Source center point at end, adjusted for pan limits
         private PointF sCenterEndRequested; // Source center point that was requested, without adjustment
         private PointF vFocusStart; // View point that was double tapped
-        private PointF vFocusEnd; // Where the view focal point should be moved to during the anim
-        private long duration = 500; // How long the anim takes
-        private boolean interruptible = true; // Whether the anim can be interrupted by a touch
+        private PointF vFocusEnd; // Where the view focal point should be moved to during the animator
+        private long duration = 500; // How long the animator takes
+        private boolean interruptible = true; // Whether the animator can be interrupted by a touch
         private int easing = EASE_IN_OUT_QUAD; // Easing style
         private int origin = ORIGIN_ANIM; // Animation origin (API, double tap or fling)
         private long time = System.currentTimeMillis(); // Start time
@@ -2670,7 +2670,7 @@ public class SubsamplingScaleImageView extends View {
      * image is instead animated to move the center point as near to the center of the screen as is allowed - it's
      * guaranteed to be on screen.
      * @param sCenter Target center point
-     * @return {@link AnimationBuilder} instance. Call {@link AnimationBuilder#start()} to start the anim.
+     * @return {@link AnimationBuilder} instance. Call {@link AnimationBuilder#start()} to start the animator.
      */
     public AnimationBuilder animateCenter(PointF sCenter) {
         if (!isReady()) {
@@ -2683,7 +2683,7 @@ public class SubsamplingScaleImageView extends View {
      * Creates a scale animation builder, that when started will animate a zoom in or out. If this would move the image
      * beyond the panning limits, the image is automatically panned during the animation.
      * @param scale Target scale.
-     * @return {@link AnimationBuilder} instance. Call {@link AnimationBuilder#start()} to start the anim.
+     * @return {@link AnimationBuilder} instance. Call {@link AnimationBuilder#start()} to start the animator.
      */
     public AnimationBuilder animateScale(float scale) {
         if (!isReady()) {
@@ -2696,7 +2696,7 @@ public class SubsamplingScaleImageView extends View {
      * Creates a scale animation builder, that when started will animate a zoom in or out. If this would move the image
      * beyond the panning limits, the image is automatically panned during the animation.
      * @param scale Target scale.
-     * @return {@link AnimationBuilder} instance. Call {@link AnimationBuilder#start()} to start the anim.
+     * @return {@link AnimationBuilder} instance. Call {@link AnimationBuilder#start()} to start the animator.
      */
     public AnimationBuilder animateScaleAndCenter(float scale, PointF sCenter) {
         if (!isReady()) {
@@ -2746,7 +2746,7 @@ public class SubsamplingScaleImageView extends View {
         }
 
         /**
-         * Desired duration of the anim in milliseconds. Default is 500.
+         * Desired duration of the animator in milliseconds. Default is 500.
          * @param duration duration in milliseconds.
          * @return this builder for method chaining.
          */
@@ -2843,7 +2843,7 @@ public class SubsamplingScaleImageView extends View {
             anim.listener = listener;
 
             if (vFocus != null) {
-                // Calculate where translation will be at the end of the anim
+                // Calculate where translation will be at the end of the animator
                 float vTranslateXEnd = vFocus.x - (targetScale * anim.sCenterStart.x);
                 float vTranslateYEnd = vFocus.y - (targetScale * anim.sCenterStart.y);
                 ScaleAndTranslate satEnd = new ScaleAndTranslate(targetScale, new PointF(vTranslateXEnd, vTranslateYEnd));

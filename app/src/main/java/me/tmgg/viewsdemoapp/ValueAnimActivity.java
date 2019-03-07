@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 
 import me.tmgg.viewsdemoapp.bean.Point;
-import me.tmgg.viewsdemoapp.widgets.evaluator.ScaleAlhpaExecutor;
+import me.tmgg.viewsdemoapp.widgets.evaluator.ScaleAlhpaEvalutor;
 
 public class ValueAnimActivity extends AppCompatActivity {
 
@@ -25,12 +25,11 @@ public class ValueAnimActivity extends AppCompatActivity {
     private int index = 0;
 
     private void processScanBg() {
-
-
         view1 = findViewById(R.id.view01);
         view2 = findViewById(R.id.view02);
         view3 = findViewById(R.id.view03);
-        ScaleAlhpaExecutor scaleAlhpaExecutor = new ScaleAlhpaExecutor();
+
+        ScaleAlhpaEvalutor scaleAlhpaExecutor = new ScaleAlhpaEvalutor();
         ValueAnimator valueAnimator1 = new ValueAnimator();
         valueAnimator1.setDuration(5000);
         valueAnimator1.setObjectValues(new Point(0.7f,0.9f),new Point(0f,3.0f));
@@ -40,9 +39,9 @@ public class ValueAnimActivity extends AppCompatActivity {
         valueAnimator1.setEvaluator(scaleAlhpaExecutor);
 
         ValueAnimator valueAnimator2 = valueAnimator1.clone();
-        valueAnimator2.setStartDelay(800);
+        valueAnimator2.setStartDelay(1000);
         ValueAnimator valueAnimator3 = valueAnimator1.clone();
-        valueAnimator3.setStartDelay(1600);
+        valueAnimator3.setStartDelay(2000);
         valueAnimator1.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -70,6 +69,8 @@ public class ValueAnimActivity extends AppCompatActivity {
         valueAnimator1.start();
         valueAnimator2.start();
         valueAnimator3.start();
+
+
 
 
 
