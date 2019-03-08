@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingBottom="20dp"
+    android:paddingRight="20dp"
+    android:layout_height="500dp">
+
+    <Button
+        android:id="@+id/menu"
+        style="@style/MenuStyle"
+        android:background="@drawable/ic_doctor" />
+
+    <Button
+        android:id="@+id/item1"
+        style="@style/MenuItemStyle"
+        android:background="@drawable/ic_meirong"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/item2"
+        style="@style/MenuItemStyle"
+        android:background="@drawable/ic_tea"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/item3"
+        style="@style/MenuItemStyle"
+        android:background="@drawable/ic_chanxiu"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/item4"
+        style="@style/MenuItemStyle"
+        android:background="@drawable/ic_shopping"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/item5"
+        style="@style/MenuItemStyle"
+        android:background="@drawable/ic_golf"
+        android:visibility="gone" />
+
+</FrameLayout>
