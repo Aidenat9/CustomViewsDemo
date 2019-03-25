@@ -1,76 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="me.tmgg.viewsdemoapp.MainActivity">
 
-    <Button
-        android:id="@+id/btn_"
-        style="@style/button_default_style"
-        android:text="demo" />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:orientation="vertical"
+       android:layout_height="wrap_content">
+       <Button
+           android:id="@+id/btn_"
+           style="@style/button_default_style"
+           android:text="demo" />
 
 
-    <me.tmgg.viewsdemoapp.widgets.SinkFrameLayout
-        android:id="@+id/sfl"
-        android:background="?attr/selectableItemBackground"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:text="你好吗"
-            android:textColor="#ffffff"
-            android:background="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            android:layout_height="match_parent" />
-    </me.tmgg.viewsdemoapp.widgets.SinkFrameLayout>
-    <Button
-        android:id="@+id/btn_valueAnim"
-        android:text="valueAnim"
-        style="@style/button_default_style"/>
+       <me.tmgg.viewsdemoapp.widgets.SinkFrameLayout
+           android:id="@+id/sfl"
+           android:background="?attr/selectableItemBackground"
+           android:layout_width="match_parent"
+           android:layout_height="50dp">
+           <TextView
+               android:layout_width="match_parent"
+               android:gravity="center"
+               android:text="你好吗"
+               android:textColor="#ffffff"
+               android:background="@color/colorPrimaryDark"
+               android:textSize="20sp"
+               android:layout_height="match_parent" />
+       </me.tmgg.viewsdemoapp.widgets.SinkFrameLayout>
+       <Button
+           android:id="@+id/btn_valueAnim"
+           android:text="valueAnim"
+           style="@style/button_default_style"/>
+       <me.tmgg.viewsdemoapp.widgets.SinkFrameLayout
+           android:id="@+id/btn_behavior"
+           android:background="?attr/selectableItemBackground"
+           android:layout_width="match_parent"
+           android:layout_height="50dp">
+           <TextView
+               android:layout_width="match_parent"
+               android:gravity="center"
+               android:text="custom_behavior"
+               android:textColor="#ffffff"
+               android:background="@color/colorAccent"
+               android:textSize="20sp"
+               android:layout_height="match_parent" />
+       </me.tmgg.viewsdemoapp.widgets.SinkFrameLayout>
 
 
-    <me.tmgg.viewsdemoapp.widgets.LoadingText
-        android:id="@+id/loadingText"
-        android:layout_marginTop="20dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+       <me.tmgg.viewsdemoapp.widgets.LoadingText
+           android:id="@+id/loadingText"
+           android:layout_marginTop="20dp"
+           android:layout_width="100dp"
+           android:layout_height="100dp" />
 
-    <me.tmgg.viewsdemoapp.widgets.DemoView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
+       <me.tmgg.viewsdemoapp.widgets.DemoView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:visibility="gone" />
 
-    <com.qmuiteam.qmui.layout.QMUIFrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="120dp">
+       <com.qmuiteam.qmui.layout.QMUIFrameLayout
+           android:layout_width="match_parent"
+           android:layout_height="120dp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:scaleType="centerCrop"
+               android:src="@mipmap/ic_launcher" />
 
-    </com.qmuiteam.qmui.layout.QMUIFrameLayout>
+       </com.qmuiteam.qmui.layout.QMUIFrameLayout>
 
-    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundFrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="15dp"
-        android:elevation="6dp"
-        android:outlineProvider="paddedBounds"
-        app:qmui_borderColor="@color/qmui_config_color_10_pure_black"
-        app:qmui_radius="10dp">
+       <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundFrameLayout
+           android:layout_width="match_parent"
+           android:layout_height="120dp"
+           android:layout_margin="15dp"
+           android:elevation="6dp"
+           android:outlineProvider="paddedBounds"
+           app:qmui_borderColor="@color/qmui_config_color_10_pure_black"
+           app:qmui_radius="10dp">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#228899" />
-    </com.qmuiteam.qmui.widget.roundwidget.QMUIRoundFrameLayout>
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:background="#228899" />
+       </com.qmuiteam.qmui.widget.roundwidget.QMUIRoundFrameLayout>
 
 
+       <me.tmgg.viewsdemoapp.widgets.ability.AbilityMapView
+           android:layout_marginTop="100dp"
+           android:id="@+id/abilityView"
+           android:layout_width="300dp"
+           android:layout_height="300dp" />
 
-</LinearLayout>
+   </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

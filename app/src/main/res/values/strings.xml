@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="behavior_sample_header">me.tmgg.viewsdemoapp.widgets.behavior.SampleHeaderBehavior</string>
+    <string name="behavior_recyclerview">me.tmgg.viewsdemoapp.widgets.behavior.RecyclerViewBehavior</string>
+
 </resources>

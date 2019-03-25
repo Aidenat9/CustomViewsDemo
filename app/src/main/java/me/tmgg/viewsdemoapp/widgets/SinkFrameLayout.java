@@ -14,7 +14,7 @@ import android.widget.FrameLayout;
  * 邮箱：tianmu19@gmail.com
  * 时间：2019/3/7 13:55
  * 包名：me.tmgg.viewsdemoapp.widgets
- * <p>description:            </p>
+ * <p>description:     下沉       </p>
  */
 public class SinkFrameLayout extends FrameLayout {
     private final static int MARGIN_DP = 3;
@@ -71,6 +71,6 @@ public class SinkFrameLayout extends FrameLayout {
             default:
                 break;
         }
-        return true;
+        return super.onTouchEvent(event);
     }
 }
