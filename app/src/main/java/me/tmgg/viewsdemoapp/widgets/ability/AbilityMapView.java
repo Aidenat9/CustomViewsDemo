@@ -5,9 +5,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
+import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -128,7 +130,7 @@ public class AbilityMapView extends View {
     }
 
     private void drawIconsAboveTexts(Canvas canvas) {
-        if(dataLists==null||dataLists.size()<=0)return;
+        if (dataLists == null || dataLists.size() <= 0) return;
         canvas.save();
         ArrayList<PointF> iconsPoints = new ArrayList<>();
         for (int i = 0; i < n; i++) {
@@ -171,7 +173,7 @@ public class AbilityMapView extends View {
     private static final String TAG = "ability";
 
     private void drawAbilityText(Canvas canvas) {
-        if(dataLists==null||dataLists.size()<=0)return;
+        if (dataLists == null || dataLists.size() <= 0) return;
 
         canvas.save();
         ArrayList<PointF> textPoints = new ArrayList<>();
@@ -206,6 +208,8 @@ public class AbilityMapView extends View {
         canvas.restore();
     }
 
+    float x1, y1;
+
     private void drawAbilityLine(Canvas canvas) {
         canvas.save();
 
@@ -220,10 +224,34 @@ public class AbilityMapView extends View {
             float x = (float) (r * Math.cos(angle * i - Math.PI / 2));
             float y = (float) (r * Math.sin(angle * i - Math.PI / 2));
             abilityPoints.add(new PointF(x, y));
+            if (i == 0) {
+                x1 = x;
+                y1 = y;
+            }
         }
         linePaint.setStrokeWidth(DpUtils.dp2px(getContext().getResources(), 1f));
         linePaint.setColor(Color.parseColor("#BDF4D4"));
         linePaint.setStyle(Paint.Style.FILL); //设置空心的
+
+        int colors[] = new int[3];
+        float positions[] = new float[3];
+
+        // 第1个点
+        colors[0] = 0xFFBDF4D4;
+        positions[0] = 0;
+
+        // 第2个点
+        colors[1] = 0xFF27C084;
+        positions[1] = 0.5f;
+
+
+        LinearGradient shader = new LinearGradient(
+                x1, y1,
+                viewWidth, viewHeight,
+                colors,
+                positions,
+                Shader.TileMode.CLAMP);
+        linePaint.setShader(shader);
 
         Path path = new Path();
         for (int i = 0; i < n; i++) {
@@ -240,10 +268,11 @@ public class AbilityMapView extends View {
         canvas.drawPath(path, linePaint);
 
         canvas.restore();
+        linePaint.setShader(null);
     }
 
     private void drawCenter2Edgepoints(Canvas canvas) {
-        if(dataLists==null||dataLists.size()<=0)return;
+        if (dataLists == null || dataLists.size() <= 0) return;
 
         canvas.save();
 
@@ -334,7 +363,7 @@ public class AbilityMapView extends View {
 
             //创建一个存储点的数组
             ArrayList<PointF> points = new ArrayList<>();
-            if(n<=0)return;
+            if (n <= 0) return;
             for (int j = 0; j < n; j++) {
                 if (i == 1) {
                     r = Radius * ((float) 3 / 4);
