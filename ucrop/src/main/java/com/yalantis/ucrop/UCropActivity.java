@@ -134,7 +134,7 @@ public class UCropActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.ucrop_menu_activity, menu);
 
-        // Change crop & loader menu icons color to match the rest of the UI colors
+        // Change crop & loader main icons color to match the rest of the UI colors
 
         MenuItem menuItemLoader = menu.findItem(R.id.menu_loader);
         Drawable menuItemLoaderIcon = menuItemLoader.getIcon();

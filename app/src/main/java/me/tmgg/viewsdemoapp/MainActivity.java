@@ -28,6 +28,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(),CustomBehaviorActivity.class));
             }
         });
+        findViewById(R.id.btn_demo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),DemoFragmentActivity.class));
+            }
+        });
+        findViewById(R.id.btn_web).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),WebActivity.class));
+            }
+        });
         AbilityMapView abilityMapView = findViewById(R.id.abilityView);
 
         AbilityBean 生存 = new AbilityBean(90f, "生存");

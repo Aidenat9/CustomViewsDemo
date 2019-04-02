@@ -75,7 +75,7 @@ public class UCropMulti {
 
     /**
      * Set an aspect ratio for crop bounds.
-     * User won't see the menu with other ratios options.
+     * User won't see the main with other ratios options.
      *
      * @param x aspect ratio X
      * @param y aspect ratio Y
@@ -88,7 +88,7 @@ public class UCropMulti {
 
     /**
      * Set an aspect ratio for crop bounds that is evaluated from source image width and height.
-     * User won't see the menu with other ratios options.
+     * User won't see the main with other ratios options.
      */
     public UCropMulti useSourceImageAspectRatio() {
         mCropOptionsBundle.putFloat(EXTRA_ASPECT_RATIO_X, 0);
@@ -545,7 +545,7 @@ public class UCropMulti {
 
         /**
          * Set an aspect ratio for crop bounds.
-         * User won't see the menu with other ratios options.
+         * User won't see the main with other ratios options.
          *
          * @param x aspect ratio X
          * @param y aspect ratio Y
@@ -557,7 +557,7 @@ public class UCropMulti {
 
         /**
          * Set an aspect ratio for crop bounds that is evaluated from source image width and height.
-         * User won't see the menu with other ratios options.
+         * User won't see the main with other ratios options.
          */
         public void useSourceImageAspectRatio() {
             mOptionBundle.putFloat(EXTRA_ASPECT_RATIO_X, 0);

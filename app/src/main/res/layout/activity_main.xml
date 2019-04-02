@@ -11,9 +11,13 @@
        android:orientation="vertical"
        android:layout_height="wrap_content">
        <Button
-           android:id="@+id/btn_"
+           android:id="@+id/btn_demo"
            style="@style/button_default_style"
            android:text="demo" />
+       <Button
+           android:id="@+id/btn_web"
+           android:text="web_pdfjs"
+           style="@style/button_default_style" />
 
 
        <me.tmgg.viewsdemoapp.widgets.SinkFrameLayout
@@ -94,6 +98,10 @@
            android:id="@+id/abilityView"
            android:layout_width="300dp"
            android:layout_height="300dp" />
+
+       <me.tmgg.viewsdemoapp.widgets.CreditMainView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
 
    </LinearLayout>
 
