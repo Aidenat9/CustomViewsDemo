@@ -1,5 +1,6 @@
 package me.tmgg.viewsdemoapp.widgets;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,6 +10,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import me.tmgg.viewsdemoapp.DpUtils;
@@ -38,6 +40,7 @@ public class CreditMainView extends View {
     private float scale_point;
     private int dp_1;
     private int dp_1_5;
+    private int value;
 
     public CreditMainView(Context context) {
         super(context);
@@ -64,46 +67,65 @@ public class CreditMainView extends View {
     private void init() {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
+        mPaint.setDither(true);
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         dp_1_5 = (int) DpUtils.dp2px(getContext().getResources(), 2f);
         dp_1 = (int) DpUtils.dp2px(getContext().getResources(), 1f);
         bg_bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.bg_credit);
+
+        ValueAnimator animator = ValueAnimator.ofInt(0, 34);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                value = (int) valueAnimator.getAnimatedValue();
+//                  postInvalidate();
+
+            }
+        });
+        animator.setDuration(10000);
+        animator.start();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-
         if (bg_bitmap != null) {
             canvas.drawBitmap(bg_bitmap, 0, 0, new Paint());
+            canvas.restore();
         }
-        canvas.restore();
-        drawScale(canvas);
+        drawCircles(canvas);
     }
 
 
-    float mPadding = 10f;
-    private void drawScale(Canvas canvas) {
-        int xr = getHeight()/3;
-        canvas.translate(getWidth()/2,getHeight()/2);
+    float mPadding = 90f;
+
+    private void drawCircles(Canvas canvas) {
+        float rotateY = (float) (getHeight()*circle_y_scale);
+        canvas.translate(getWidth() / 2, mPadding);
+
+        int xr = getWidth() / 2;
 //        int xr = 0;
-        canvas.rotate(-17*6,xr,xr);
-        mPaint.setStrokeWidth(dp_1);
-        int lineWidth;
-        for (int i = 0; i < 34; i++) {
-            if (i  == 20) {
+        canvas.rotate(-17 * 6, 0, rotateY);
+        mPaint.setStrokeWidth(dp_1_5);
+        int lineWidth = 30;
+        for (int i = 0; i < 35; i++) {
+            if (i == 20) {
                 mPaint.setStrokeWidth(dp_1_5);
                 mPaint.setColor(Color.RED);
-                lineWidth = 50;
+                lineWidth = 35;
             } else {
-                lineWidth = 30;
+                lineWidth = 20;
                 mPaint.setColor(Color.BLACK);
                 mPaint.setStrokeWidth(dp_1);
             }
-            canvas.drawLine(xr, mPadding + lineWidth, xr, mPadding, mPaint);
-            canvas.rotate(6, xr,xr);
+            //起点 终点 ，画竖直的线，然后旋转得到圆弧（半径是旋转的坐标位置）
+            canvas.drawLine(0, mPadding, 0, (mPadding - lineWidth), mPaint);
+            canvas.rotate(6, 0, rotateY);//以新坐标系的点来旋转
         }
+
+        Log.e(TAG, "drawCircles: " + value);
     }
 
+    private static final String TAG = "tag";
 
     public Bitmap getNewBitmap(Bitmap bitmap, float newWidth) {
         // 获得图片的宽高.
