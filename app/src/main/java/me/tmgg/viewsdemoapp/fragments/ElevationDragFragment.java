@@ -47,7 +47,6 @@ public class ElevationDragFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mOutlineProviderCircle = new CircleOutlineProvider();
-
         mElevationStep = getResources().getDimensionPixelSize(R.dimen.elevation_step);
     }
 
@@ -117,7 +116,7 @@ public class ElevationDragFragment extends Fragment {
     private class CircleOutlineProvider extends ViewOutlineProvider {
         @Override
         public void getOutline(View view, Outline outline) {
-            outline.setOval(0, 0, view.getWidth(), view.getHeight());
+            outline.setOval(10, 10, view.getWidth(), view.getHeight());
         }
     }
 

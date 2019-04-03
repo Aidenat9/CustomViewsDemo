@@ -133,9 +133,10 @@ public class ClippingBasicFragment extends Fragment {
 
         @Override
         public void getOutline(View view, Outline outline) {
-            final int margin = Math.min(view.getWidth(), view.getHeight()) / 10;
-            outline.setRoundRect(margin, margin, view.getWidth() - margin,
-                    view.getHeight() - margin, margin / 2);
+//            final int margin = Math.min(view.getWidth(), view.getHeight()) / 10;
+//            outline.setRoundRect(margin, margin, view.getWidth() - margin,
+//                    view.getHeight() - margin, margin / 2);
+            outline.setOval(0,0,view.getWidth(),view.getWidth());
         }
 
     }

@@ -41,6 +41,7 @@ public class CreditMainView extends View {
     private int dp_1;
     private int dp_1_5;
     private int value;
+    private ValueAnimator animator;
 
     public CreditMainView(Context context) {
         super(context);
@@ -73,12 +74,10 @@ public class CreditMainView extends View {
         dp_1 = (int) DpUtils.dp2px(getContext().getResources(), 1f);
         bg_bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.bg_credit);
 
-        ValueAnimator animator = ValueAnimator.ofInt(0, 34);
+        animator = ValueAnimator.ofInt(0, 34);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                value = (int) valueAnimator.getAnimatedValue();
-//                  postInvalidate();
 
             }
         });
@@ -99,30 +98,32 @@ public class CreditMainView extends View {
     float mPadding = 90f;
 
     private void drawCircles(Canvas canvas) {
-        float rotateY = (float) (getHeight()*circle_y_scale);
-        canvas.translate(getWidth() / 2, mPadding);
-
-        int xr = getWidth() / 2;
-//        int xr = 0;
-        canvas.rotate(-17 * 6, 0, rotateY);
-        mPaint.setStrokeWidth(dp_1_5);
-        int lineWidth = 30;
-        for (int i = 0; i < 35; i++) {
-            if (i == 20) {
-                mPaint.setStrokeWidth(dp_1_5);
-                mPaint.setColor(Color.RED);
-                lineWidth = 35;
-            } else {
-                lineWidth = 20;
-                mPaint.setColor(Color.BLACK);
-                mPaint.setStrokeWidth(dp_1);
-            }
-            //起点 终点 ，画竖直的线，然后旋转得到圆弧（半径是旋转的坐标位置）
-            canvas.drawLine(0, mPadding, 0, (mPadding - lineWidth), mPaint);
-            canvas.rotate(6, 0, rotateY);//以新坐标系的点来旋转
+        float rotateY = (float) (getHeight() * circle_y_scale);
+        if (!animator.isRunning()) {
+            canvas.translate(getWidth() / 2, mPadding);
+            canvas.rotate(-17 * 6, 0, rotateY);
         }
-
-        Log.e(TAG, "drawCircles: " + value);
+        if (animator.isRunning()) {
+            value = (int) animator.getAnimatedValue();
+            Log.e(TAG, "drawCircles: "+value );
+            mPaint.setStrokeWidth(dp_1_5);
+            int lineWidth = 30;
+            for (int i = 0; i < 35; i++) {
+                if (i == 20) {
+                    mPaint.setStrokeWidth(dp_1_5);
+                    mPaint.setColor(Color.RED);
+                    lineWidth = 35;
+                } else {
+                    lineWidth = 20;
+                    mPaint.setColor(Color.BLACK);
+                    mPaint.setStrokeWidth(dp_1);
+                }
+                //起点 终点 ，画竖直的线，然后旋转得到圆弧（半径是旋转的坐标位置）
+                canvas.drawLine(0, mPadding, 0, (mPadding - lineWidth), mPaint);
+                canvas.rotate(6, 0, rotateY);//以新坐标系的点来旋转
+            }
+            postInvalidate();
+        }
     }
 
     private static final String TAG = "tag";

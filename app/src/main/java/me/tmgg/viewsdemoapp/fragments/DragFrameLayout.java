@@ -66,29 +66,49 @@ public class DragFrameLayout extends FrameLayout {
          * Create the {@link ViewDragHelper} and set its callback.
          */
         mDragHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelper.Callback() {
+
+            private int top;
+            private int left;
+
             @Override
             public boolean tryCaptureView(View child, int pointerId) {
                 return mDragViews.contains(child);
             }
 
+            //当状态改变的时候回调，返回相应的状态（这里有三种状态）
+            @Override
+            public void onViewDragStateChanged(int state) {
+                super.onViewDragStateChanged(state);
+            }
+
+            // 当你拖动的View位置发生改变的时候回调
             @Override
             public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
                 super.onViewPositionChanged(changedView, left, top, dx, dy);
             }
 
+            //不让移动子布局超过边界
             @Override
             public int clampViewPositionHorizontal(View child, int left, int dx) {
-                return left;
+                int paddingLeft = getPaddingLeft();
+                int rightBound = getWidth()-child.getWidth()-paddingLeft;
+
+                return Math.min(Math.max(paddingLeft,left),rightBound);
             }
 
+            //竖直拖拽的时候回调的方法
             @Override
             public int clampViewPositionVertical(View child, int top, int dy) {
-                return top;
+                int paddingTop = getPaddingTop();
+                int bottomBound = getHeight()- child.getHeight()-paddingTop;
+                return Math.min(Math.max(paddingTop,top),bottomBound);
             }
 
             @Override
             public void onViewCaptured(View capturedChild, int activePointerId) {
                 super.onViewCaptured(capturedChild, activePointerId);
+                left = capturedChild.getLeft();
+                top = capturedChild.getTop();
                 if (mDragFrameLayoutController != null) {
                     mDragFrameLayoutController.onDragDrop(true);
                 }
@@ -100,8 +120,31 @@ public class DragFrameLayout extends FrameLayout {
                 if (mDragFrameLayoutController != null) {
                     mDragFrameLayoutController.onDragDrop(false);
                 }
+                //松开时候 让子view回到原来的状态
+//                mDragHelper.settleCapturedViewAt(left, top);
+//                invalidate();
             }
+
+
+            //把view的移动 给边框的拖动
+//            @Override
+//            public void onEdgeDragStarted(int edgeFlags, int pointerId) {
+////                super.onEdgeDragStarted(edgeFlags, pointerId);
+//                if(mDragViews.get(0)!=null){
+//                    mDragHelper.captureChildView(mDragViews.get(0),pointerId);
+//                }
+//            }
         });
+        //把view的移动 给边框的拖动
+//        mDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_ALL);
+    }
+
+
+    @Override
+    public void computeScroll() {
+        if (mDragHelper != null && mDragHelper.continueSettling(true)) {
+            postInvalidate();
+        }
     }
 
     @Override
@@ -122,6 +165,7 @@ public class DragFrameLayout extends FrameLayout {
 
     /**
      * Adds a new {@link View} to the list of views that are draggable within the container.
+     *
      * @param dragView the {@link View} to make draggable
      */
     public void addDragView(View dragView) {
@@ -130,6 +174,7 @@ public class DragFrameLayout extends FrameLayout {
 
     /**
      * Sets the {@link DragFrameLayoutController} that will receive the drag events.
+     *
      * @param dragFrameLayoutController a {@link DragFrameLayoutController}
      */
     public void setDragFrameController(DragFrameLayoutController dragFrameLayoutController) {
