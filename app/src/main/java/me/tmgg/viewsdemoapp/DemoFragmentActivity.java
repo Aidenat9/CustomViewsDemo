@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import me.tmgg.viewsdemoapp.fragments.ClippingBasicFragment;
+import me.tmgg.viewsdemoapp.fragments.ConstraintlayoutFragment;
 import me.tmgg.viewsdemoapp.fragments.ElevationDragFragment;
 
 public class DemoFragmentActivity extends AppCompatActivity {
@@ -28,6 +29,9 @@ public class DemoFragmentActivity extends AppCompatActivity {
             case R.id.menu_elevation_view:
                 ElevationDragFragment fragment = new ElevationDragFragment();
                 transaction.replace(R.id.framelayout, fragment);
+                break;
+            case R.id.menu_constraintlayout:
+                transaction.replace(R.id.framelayout, new ConstraintlayoutFragment());
                 break;
             default:
                 break;

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <item android:id="@+id/menu_clip_view" app:showAsAction="collapseActionView" android:title="裁剪"/>
 <item android:id="@+id/menu_elevation_view" app:showAsAction="collapseActionView" android:title="elevation"/>
+<item android:id="@+id/menu_constraintlayout" app:showAsAction="collapseActionView" android:title="constraintlayout"/>
 
 
 
