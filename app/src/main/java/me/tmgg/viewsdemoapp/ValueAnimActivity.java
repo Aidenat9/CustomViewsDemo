@@ -2,13 +2,13 @@ package me.tmgg.viewsdemoapp;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -40,43 +40,51 @@ public class ValueAnimActivity extends AppCompatActivity {
         setContentView(R.layout.activity_value_anim);
         processScanBg();
         processBottomMenu();
-        init();
+        animBound();
     }
 
-    private void init() {
-        float dp46 = DpUtils.dp2px(getResources(), 46f);
-        float dp98 = DpUtils.dp2px(getResources(), 98f);
+    private void animBound() {
+        float dp46 = DpUtils.dp2px(getResources(), 48f);
+        float dp98 = DpUtils.dp2px(getResources(), 96f);
 
         View inflate = findViewById(R.id.fl);
         mTv = findViewById(R.id.tv_changebound_desc);
-        mTv.setText("+20分");
+        mTv.setText("+20");
         mIv = findViewById(R.id.iv_changebound);
 
 
         AnimatorSet animationSet = new AnimatorSet();
-        animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(inflate, "scaleX", 0f, 1.0f);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(inflate, "scaleY", 0f, 1.0f);
-        scaleX.setDuration(400);
-        scaleY.setDuration(400);
+        animationSet.setInterpolator(new LinearInterpolator());
+        PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat("alpha", 0.2f, 1.0f);
+        PropertyValuesHolder translateY = PropertyValuesHolder.ofFloat("translationY", -90f, 0f);
+        PropertyValuesHolder scaleX1 = PropertyValuesHolder.ofFloat("scaleX", 0f, 1.0f);
+        PropertyValuesHolder scaleY1 = PropertyValuesHolder.ofFloat("scaleY", 0f, 1.0f);
+        ValueAnimator animator1 = ObjectAnimator.ofPropertyValuesHolder(inflate, scaleX1, scaleY1, alpha, translateY);
+        animator1.setDuration(600).setInterpolator(new LinearInterpolator());
+
         ChangeWidthEvalutor changeWidthEvalutor = new ChangeWidthEvalutor();
         ValueAnimator valueAnimator = new ValueAnimator();
-        valueAnimator.setDuration(800);
-        valueAnimator.setFloatValues(dp46,dp98);
+        valueAnimator.setDuration(1000);
+        valueAnimator.setFloatValues(dp46, dp98);
         valueAnimator.setEvaluator(changeWidthEvalutor);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float animatedValue = (float) animation.getAnimatedValue();
-                Log.e("animatedValue", "onAnimationUpdate: animatedValue"+animatedValue );
+                Log.e("animatedValue", "onAnimationUpdate: animatedValue" + animatedValue);
                 ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
                 layoutParams.width = (int) animatedValue;
                 inflate.setLayoutParams(layoutParams);
+                inflate.requestLayout();
             }
         });
+        //waitAnimator
+        ObjectAnimator waitAnimator = ObjectAnimator.ofFloat(inflate, "alpha", 1.0f, 1.0f);
+        waitAnimator.setDuration(1200);
+
         ValueAnimator valueAnimator2 = new ValueAnimator();
         valueAnimator2.setDuration(500);
-        valueAnimator2.setFloatValues(dp98,dp46);
+        valueAnimator2.setFloatValues(dp98, dp46);
         valueAnimator2.setEvaluator(changeWidthEvalutor);
         valueAnimator2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -85,12 +93,25 @@ public class ValueAnimActivity extends AppCompatActivity {
                 ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
                 layoutParams.width = (int) animatedValue;
                 inflate.setLayoutParams(layoutParams);
+                inflate.requestLayout();
             }
         });
-        animationSet.play(scaleX).with(scaleY).before(valueAnimator).before(valueAnimator2);
+        PropertyValuesHolder alpha2 = PropertyValuesHolder.ofFloat("alpha", 1.0f, 0f);
+        PropertyValuesHolder translateY2 = PropertyValuesHolder.ofFloat("translationY", 0f, -90f);
+        PropertyValuesHolder scaleX2 = PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0f);
+        PropertyValuesHolder scaleY2 = PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0f);
+        ValueAnimator animator2 = ObjectAnimator.ofPropertyValuesHolder(inflate, scaleX2, scaleY2, alpha2, translateY2);
+        animator2.setDuration(500).setInterpolator(new LinearInterpolator());
+        try {
+            animationSet.playSequentially(animator1,valueAnimator,waitAnimator,valueAnimator2,animator2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         animationSet.start();
+        inflate.setVisibility(View.VISIBLE);
 
     }
+
     //卫星菜单动画
     private boolean isOpenMenu;
 
@@ -150,77 +171,78 @@ public class ValueAnimActivity extends AppCompatActivity {
         set.playTogether(ObjectAnimator.ofFloat(view, "translationX", translationX, 0), ObjectAnimator.ofFloat(view, "translationY", translationY, 0), ObjectAnimator.ofFloat(view, "scaleX", 1f, 0.1f), ObjectAnimator.ofFloat(view, "scaleY", 1f, 0.1f), ObjectAnimator.ofFloat(view, "alpha", 1f, 0f));
         set.setDuration(DURATION).start();
     }
-        //扫描动画
-        private int index = 0;
 
-        private void processScanBg () {
-            view1 = findViewById(R.id.view01);
-            view2 = findViewById(R.id.view02);
-            view3 = findViewById(R.id.view03);
+    //扫描动画
+    private int index = 0;
 
-            ScaleAlhpaEvalutor scaleAlhpaExecutor = new ScaleAlhpaEvalutor();
-            ValueAnimator valueAnimator1 = new ValueAnimator();
-            valueAnimator1.setDuration(5000);
-            valueAnimator1.setObjectValues(new Point(0.7f, 0.9f), new Point(0f, 3.0f));
-            valueAnimator1.setRepeatMode(ValueAnimator.RESTART);
-            valueAnimator1.setRepeatCount(ValueAnimator.INFINITE);
-            valueAnimator1.setInterpolator(new LinearInterpolator());
-            valueAnimator1.setEvaluator(scaleAlhpaExecutor);
+    private void processScanBg() {
+        view1 = findViewById(R.id.view01);
+        view2 = findViewById(R.id.view02);
+        view3 = findViewById(R.id.view03);
 
-            ValueAnimator valueAnimator2 = valueAnimator1.clone();
-            valueAnimator2.setStartDelay(1000);
-            ValueAnimator valueAnimator3 = valueAnimator1.clone();
-            valueAnimator3.setStartDelay(2000);
-            valueAnimator1.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    Point point = (Point) animation.getAnimatedValue();
-                    index = 0;
-                    processScaleAlpha(index, point);
-                }
-            });
-            valueAnimator2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    Point point = (Point) animation.getAnimatedValue();
-                    index = 1;
-                    processScaleAlpha(index, point);
-                }
-            });
-            valueAnimator3.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    Point point = (Point) animation.getAnimatedValue();
-                    index = 2;
-                    processScaleAlpha(index, point);
-                }
-            });
-            valueAnimator1.start();
-            valueAnimator2.start();
-            valueAnimator3.start();
+        ScaleAlhpaEvalutor scaleAlhpaExecutor = new ScaleAlhpaEvalutor();
+        ValueAnimator valueAnimator1 = new ValueAnimator();
+        valueAnimator1.setDuration(5000);
+        valueAnimator1.setObjectValues(new Point(0.7f, 0.9f), new Point(0f, 3.0f));
+        valueAnimator1.setRepeatMode(ValueAnimator.RESTART);
+        valueAnimator1.setRepeatCount(ValueAnimator.INFINITE);
+        valueAnimator1.setInterpolator(new LinearInterpolator());
+        valueAnimator1.setEvaluator(scaleAlhpaExecutor);
 
-
-        }
-
-        private void processScaleAlpha ( int index, Point point){
-            float scale = point.scale;
-            float alpha = point.alpha;
-            switch (index) {
-                case 0:
-                    view1.setAlpha(alpha);
-                    view1.setScaleX(scale);
-                    view1.setScaleY(scale);
-                    break;
-                case 1:
-                    view2.setAlpha(alpha);
-                    view2.setScaleX(scale);
-                    view2.setScaleY(scale);
-                    break;
-                case 2:
-                    view3.setAlpha(alpha);
-                    view3.setScaleX(scale);
-                    view3.setScaleY(scale);
-                    break;
+        ValueAnimator valueAnimator2 = valueAnimator1.clone();
+        valueAnimator2.setStartDelay(1000);
+        ValueAnimator valueAnimator3 = valueAnimator1.clone();
+        valueAnimator3.setStartDelay(2000);
+        valueAnimator1.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Point point = (Point) animation.getAnimatedValue();
+                index = 0;
+                processScaleAlpha(index, point);
             }
+        });
+        valueAnimator2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Point point = (Point) animation.getAnimatedValue();
+                index = 1;
+                processScaleAlpha(index, point);
+            }
+        });
+        valueAnimator3.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Point point = (Point) animation.getAnimatedValue();
+                index = 2;
+                processScaleAlpha(index, point);
+            }
+        });
+        valueAnimator1.start();
+        valueAnimator2.start();
+        valueAnimator3.start();
+
+
+    }
+
+    private void processScaleAlpha(int index, Point point) {
+        float scale = point.scale;
+        float alpha = point.alpha;
+        switch (index) {
+            case 0:
+                view1.setAlpha(alpha);
+                view1.setScaleX(scale);
+                view1.setScaleY(scale);
+                break;
+            case 1:
+                view2.setAlpha(alpha);
+                view2.setScaleX(scale);
+                view2.setScaleY(scale);
+                break;
+            case 2:
+                view3.setAlpha(alpha);
+                view3.setScaleX(scale);
+                view3.setScaleY(scale);
+                break;
         }
     }
+}
