@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<item android:id="@+id/menu_clip_view" app:showAsAction="collapseActionView" android:title="裁剪"/>
-<item android:id="@+id/menu_elevation_view" app:showAsAction="collapseActionView" android:title="elevation"/>
-<item android:id="@+id/menu_constraintlayout" app:showAsAction="collapseActionView" android:title="constraintlayout"/>
-
+    <item
+        android:id="@+id/menu_clip_view"
+        android:title="裁剪"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/menu_elevation_view"
+        android:title="elevation"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/menu_constraintlayout"
+        android:title="constraintlayout"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/menu_shopcart"
+        android:title="shopcart"
+        app:showAsAction="collapseActionView" />
 
 
 </menu>

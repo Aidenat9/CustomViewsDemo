@@ -43,6 +43,7 @@ public class ValueAnimActivity extends AppCompatActivity {
         animBound();
     }
 
+
     private void animBound() {
         float dp46 = DpUtils.dp2px(getResources(), 48f);
         float dp98 = DpUtils.dp2px(getResources(), 96f);
