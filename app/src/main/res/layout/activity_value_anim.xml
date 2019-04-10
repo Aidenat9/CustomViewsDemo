@@ -32,6 +32,32 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
+        <FrameLayout
+            android:id="@+id/fl"
+            android:layout_width="48dp"
+            android:background="@drawable/bound_gray"
+            android:padding="3dp"
+            android:layout_marginTop="50dp"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/iv_changebound"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:src="@drawable/ic_golf" />
+
+            <TextView
+                android:id="@+id/tv_changebound_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="45dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
     </LinearLayout>
 
 

@@ -29,6 +29,16 @@
 
     </LinearLayout>
 
+    <!--flashingtextview-->
+    <me.tmgg.viewsdemoapp.widgets.FlashingTextView
+        android:layout_width="wrap_content"
+        android:text="一闪一闪亮晶晶，满天都是小星星。"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/imageView"

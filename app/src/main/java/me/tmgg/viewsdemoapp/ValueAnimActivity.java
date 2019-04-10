@@ -5,11 +5,17 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import me.tmgg.viewsdemoapp.bean.Point;
+import me.tmgg.viewsdemoapp.widgets.evaluator.ChangeWidthEvalutor;
 import me.tmgg.viewsdemoapp.widgets.evaluator.ScaleAlhpaEvalutor;
 
 public class ValueAnimActivity extends AppCompatActivity {
@@ -25,6 +31,8 @@ public class ValueAnimActivity extends AppCompatActivity {
     private Button mItemButton4;
     private Button mItemButton5;
 
+    private TextView mTv;
+    private ImageView mIv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +40,57 @@ public class ValueAnimActivity extends AppCompatActivity {
         setContentView(R.layout.activity_value_anim);
         processScanBg();
         processBottomMenu();
+        init();
     }
 
+    private void init() {
+        float dp46 = DpUtils.dp2px(getResources(), 46f);
+        float dp98 = DpUtils.dp2px(getResources(), 98f);
+
+        View inflate = findViewById(R.id.fl);
+        mTv = findViewById(R.id.tv_changebound_desc);
+        mTv.setText("+20分");
+        mIv = findViewById(R.id.iv_changebound);
+
+
+        AnimatorSet animationSet = new AnimatorSet();
+        animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(inflate, "scaleX", 0f, 1.0f);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(inflate, "scaleY", 0f, 1.0f);
+        scaleX.setDuration(400);
+        scaleY.setDuration(400);
+        ChangeWidthEvalutor changeWidthEvalutor = new ChangeWidthEvalutor();
+        ValueAnimator valueAnimator = new ValueAnimator();
+        valueAnimator.setDuration(800);
+        valueAnimator.setFloatValues(dp46,dp98);
+        valueAnimator.setEvaluator(changeWidthEvalutor);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float animatedValue = (float) animation.getAnimatedValue();
+                Log.e("animatedValue", "onAnimationUpdate: animatedValue"+animatedValue );
+                ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
+                layoutParams.width = (int) animatedValue;
+                inflate.setLayoutParams(layoutParams);
+            }
+        });
+        ValueAnimator valueAnimator2 = new ValueAnimator();
+        valueAnimator2.setDuration(500);
+        valueAnimator2.setFloatValues(dp98,dp46);
+        valueAnimator2.setEvaluator(changeWidthEvalutor);
+        valueAnimator2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float animatedValue = (float) animation.getAnimatedValue();
+                ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
+                layoutParams.width = (int) animatedValue;
+                inflate.setLayoutParams(layoutParams);
+            }
+        });
+        animationSet.play(scaleX).with(scaleY).before(valueAnimator).before(valueAnimator2);
+        animationSet.start();
+
+    }
     //卫星菜单动画
     private boolean isOpenMenu;
 
