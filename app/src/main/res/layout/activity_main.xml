@@ -18,6 +18,10 @@
            android:id="@+id/btn_web"
            android:text="web_pdfjs"
            style="@style/button_default_style" />
+       <Button
+           android:id="@+id/btn_twofloor"
+           android:text="淘寶二樓demo"
+           style="@style/button_default_style" />
 
 
        <me.tmgg.viewsdemoapp.widgets.SinkFrameLayout

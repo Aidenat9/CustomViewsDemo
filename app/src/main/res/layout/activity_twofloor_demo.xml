@@ -1,0 +1,156 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlDragRate="0.85"
+        app:srlHeaderHeight="54dp"
+        app:srlHeaderInsetStart="0dp"
+        app:srlHeaderMaxDragRate="5"
+        app:srlHeaderTriggerRate="3.1"
+        tools:context=".TwofloorDemoActivity">
+
+        <com.scwang.smartrefresh.layout.header.TwoLevelHeader
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            app:srlFloorRage="4.6"
+            app:srlRefreshRage="3.1"
+            app:srlMaxRage="5"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_secondfloor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <FrameLayout
+                    android:id="@+id/fl_blank"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#FAFAFA" />
+
+                <ImageView
+                    android:id="@+id/secondfloor"
+                    android:layout_width="match_parent"
+                    android:layout_height="131dp"
+                    android:layout_above="@id/fl_blank"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/bg_twofloor" />
+
+                <ImageView
+                    android:id="@+id/iv_car"
+                    android:layout_width="66dp"
+                    android:layout_height="31dp"
+                    android:layout_above="@id/fl_blank"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:src="@mipmap/car_twofloor" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="370dp"
+                    android:layout_above="@id/iv_car" />
+
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/secondfloor_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@mipmap/image_secondfloor_content" />
+
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                android:id="@+id/classics"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                app:srlAccentColor="@android:color/black"
+                app:srlClassicsSpinnerStyle="Translate"
+                app:srlDrawableArrow="@mipmap/arrow_down_twofloor"
+                app:srlDrawableArrowSize="14.6dp"
+                app:srlDrawableMarginRight="10dp"
+                app:srlDrawableProgress="@mipmap/ic_progress"
+                app:srlDrawableProgressSize="14.6dp"
+                app:srlDrawableSize="14.6dp"
+                app:srlEnableLastTime="false"
+                app:srlFinishDuration="500"
+                app:srlPrimaryColor="#000000"
+                app:srlTextFailed="@string/srl_header_failed"
+                app:srlTextFinish="@string/srl_header_finish"
+                app:srlTextLoading="@string/srl_header_loading"
+                app:srlTextPulling="下拉刷新"
+                app:srlTextRefreshing="@string/srl_header_refreshing"
+                app:srlTextRelease="快放手，我要刷新啦"
+                app:srlTextSecondary="继续下来进入开车赚钱"
+                app:srlTextSizeTime="10sp"
+                app:srlTextSizeTitle="14sp"
+                app:srlTextTimeMarginTop="2dp" />
+
+        </com.scwang.smartrefresh.layout.header.TwoLevelHeader>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:id="@+id/contentPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_home_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="#c270c8"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="標題"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@android:drawable/ic_dialog_alert" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:background="#cdcdcd"
+                    android:contentDescription="@string/app_name"
+                    android:text="佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n佈局\n"
+                    android:textColor="#333333" />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srlPrimaryColor="@android:color/white" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</FrameLayout>
