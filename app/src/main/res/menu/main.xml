@@ -17,6 +17,10 @@
         android:id="@+id/menu_shopcart"
         android:title="shopcart"
         app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/dstsrc"
+        android:title="dstsrc"
+        app:showAsAction="collapseActionView" />
 
 
 </menu>

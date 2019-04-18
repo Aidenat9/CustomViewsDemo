@@ -75,8 +75,8 @@ public class TwofloorDemoActivity extends AppCompatActivity {
             public void onHeaderMoving(RefreshHeader header, boolean isDragging, float percent, int offset, int headerHeight, int maxDragHeight) {
                 floor.setTranslationY(Math.min(offset - floor.getHeight(), refreshLayout.getLayout().getHeight() - floor.getHeight()));
                 //3.1 -4.6
-                if (percent > 3.1F &&percent<=4.6&& isDragging) {
-                    float offsetX = middleCarWidth * ((percent - 3.1F) / 1.5F);
+                if (percent > 3.1F &&percent<=4.5&& isDragging) {
+                    float offsetX = middleCarWidth * ((percent - 3.1F) / 1.4F);
                     Log.e(TAG, "onAnimationUpdate: offsetX  " + offsetX);
                     if(null!=mIvCarHome)mIvCarHome.setAlpha(1.0f);
                     if(null!=mIvCarHome)mIvCarHome.setTranslationX(offsetX);
@@ -123,7 +123,7 @@ public class TwofloorDemoActivity extends AppCompatActivity {
      */
     public void initState() {
         ImmersionBar mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.transparentStatusBar();
+        mImmersionBar.transparentStatusBar().statusBarDarkFont(true);
         /*透明状态栏，不写默认透明色*/
         mImmersionBar.init();
     }

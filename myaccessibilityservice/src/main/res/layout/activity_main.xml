@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_content"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="accessibiligyService"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_goAccess"
+        app:layout_constraintTop_toBottomOf="@id/tv_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="100dp"
+        android:text="goAccess"
+        android:layout_height="40dp" />
+    <Button
+        android:id="@+id/btn_goApp"
+        app:layout_constraintTop_toBottomOf="@id/btn_goAccess"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="100dp"
+        android:text="goApp"
+        android:layout_height="40dp" />
+    <Button
+        android:id="@+id/btn_clean"
+        app:layout_constraintTop_toBottomOf="@id/btn_goApp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="100dp"
+        android:text="cleanProcess"
+        android:layout_height="40dp" />
+    <Button
+        android:id="@+id/btn_install"
+        app:layout_constraintTop_toBottomOf="@id/btn_clean"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="100dp"
+        android:text="installApk"
+        android:layout_height="40dp" />
+    <Button
+        android:id="@+id/btn_qutoutiao"
+        app:layout_constraintTop_toBottomOf="@id/btn_install"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="130dp"
+        android:text="qutoutiao"
+        android:layout_height="40dp" />
+
+</android.support.constraint.ConstraintLayout>

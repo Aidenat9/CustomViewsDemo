@@ -1,1 +1,1 @@
-include ':app', ':baseRvAdapterLibrary'
+include ':app', ':baseRvAdapterLibrary', ':myaccessibilityservice'

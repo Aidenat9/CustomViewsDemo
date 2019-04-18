@@ -2,8 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+  >
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/refreshLayout"
@@ -19,7 +20,7 @@
         <com.scwang.smartrefresh.layout.header.TwoLevelHeader
             android:id="@+id/header"
             android:layout_width="match_parent"
-            app:srlFloorRage="4.6"
+            app:srlFloorRage="4.5"
             app:srlRefreshRage="3.1"
             app:srlMaxRage="5"
             android:layout_height="wrap_content">

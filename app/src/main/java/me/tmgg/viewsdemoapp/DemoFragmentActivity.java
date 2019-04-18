@@ -10,6 +10,7 @@ import me.tmgg.viewsdemoapp.fragments.ClippingBasicFragment;
 import me.tmgg.viewsdemoapp.fragments.ConstraintlayoutFragment;
 import me.tmgg.viewsdemoapp.fragments.ElevationDragFragment;
 import me.tmgg.viewsdemoapp.fragments.ShopCartFragment;
+import me.tmgg.viewsdemoapp.fragments.XfermodeFragment;
 
 public class DemoFragmentActivity extends AppCompatActivity {
 
@@ -36,6 +37,9 @@ public class DemoFragmentActivity extends AppCompatActivity {
                 break;
             case R.id.menu_shopcart:
                 transaction.replace(R.id.framelayout, new ShopCartFragment());
+                break;
+            case R.id.dstsrc:
+                transaction.replace(R.id.framelayout, new XfermodeFragment());
                 break;
             default:
                 break;
