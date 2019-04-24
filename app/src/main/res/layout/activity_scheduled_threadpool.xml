@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ScheduledThreadpoolActivity">
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="120dp"
+        android:text="start"
+        android:layout_height="40dp" />
+
+    <Button
+        android:id="@+id/btn_shutDown"
+        android:layout_width="120dp"
+        android:text="shutDown"
+        android:layout_height="40dp" />
+
+</LinearLayout>
