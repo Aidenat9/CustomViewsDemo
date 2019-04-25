@@ -33,6 +33,7 @@ public class ScheduledThreadpoolActivity extends AppCompatActivity {
     }
 
     private void startThread() {
+
         threadPoolExecutor = new ScheduledThreadPoolExecutor(2);
         threadPoolExecutor.scheduleAtFixedRate(new Runnable() {
             @Override
