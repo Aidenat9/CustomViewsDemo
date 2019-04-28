@@ -21,6 +21,8 @@
         android:id="@+id/dstsrc"
         android:title="dstsrc"
         app:showAsAction="collapseActionView" />
-
+    <item android:id="@+id/snapHelper"
+        android:title="snapHelper"
+        app:showAsAction="collapseActionView"/>
 
 </menu>

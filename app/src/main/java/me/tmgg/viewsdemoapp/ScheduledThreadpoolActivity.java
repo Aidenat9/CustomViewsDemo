@@ -21,6 +21,7 @@ public class ScheduledThreadpoolActivity extends AppCompatActivity {
         findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startThread();
             }
         });
