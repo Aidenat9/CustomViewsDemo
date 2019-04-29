@@ -24,5 +24,20 @@
     <item android:id="@+id/snapHelper"
         android:title="snapHelper"
         app:showAsAction="collapseActionView"/>
+    <item
+        android:id="@+id/bottomBehavior"
+        android:title="bottomBehavior"
+        app:showAsAction="collapseActionView" />
+    <item android:id="@+id/bottomDialog"
+        android:title="bottmoDialog"
+        app:showAsAction="collapseActionView"/>
+    <item
+         android:id="@+id/bottomFragment"
+        android:title="bottomFragment"
+        app:showAsAction="collapseActionView"/>
 
+    <item
+        android:id="@+id/fullBottomSheetDialogFragment"
+        android:title="fullBottomSheetDialogFragment"
+        app:showAsAction="collapseActionView"/>
 </menu>
