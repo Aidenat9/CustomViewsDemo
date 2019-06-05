@@ -40,4 +40,8 @@
         android:id="@+id/fullBottomSheetDialogFragment"
         android:title="fullBottomSheetDialogFragment"
         app:showAsAction="collapseActionView"/>
+    <item
+        android:id="@+id/diffFragment"
+        android:title="diffUtilRecyclerView"
+        app:showAsAction="collapseActionView"/>
 </menu>

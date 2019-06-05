@@ -4,6 +4,7 @@ package me.tmgg.viewsdemoapp.fragments;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -67,6 +68,17 @@ public class SnapHelperDemoFragment extends android.support.v4.app.Fragment {
         initDatas();
         myAdapter = new MyAdapter(R.layout.item_rv, datas);
         recyclerView.setAdapter(myAdapter);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                //第一个展示的位置
+                int firstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
+                //第一个全部展示出来的item的位置
+                int firstCompletelyVisibleItemPosition = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                Toast.makeText(mContext, "位置："+firstCompletelyVisibleItemPosition+"___ "+firstVisibleItemPosition, Toast.LENGTH_SHORT).show();
+            }
+        });
         myAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {

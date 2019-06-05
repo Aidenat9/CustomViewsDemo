@@ -41,6 +41,9 @@ class DemoFragmentActivity : AppCompatActivity() {
                 val fullSheetDialogFragment = FullSheetDialogFragment()
                 fullSheetDialogFragment.show(supportFragmentManager,"fullSheetDialogFragment")
             }
+            R.id.diffFragment->{
+                transaction.replace(R.id.framelayout, DiffRecyclerViewFragment());
+            }
             else -> {
             }
         }
