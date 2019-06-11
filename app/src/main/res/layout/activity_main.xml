@@ -107,10 +107,22 @@
            android:layout_width="300dp"
            android:layout_height="300dp" />
 
-       <me.tmgg.viewsdemoapp.widgets.CreditMainView
+       <!--<me.tmgg.viewsdemoapp.widgets.CreditMainView-->
+           <!--android:layout_width="match_parent"-->
+           <!--android:layout_marginBottom="30dp"-->
+           <!--android:layout_height="wrap_content" />-->
+
+       <LinearLayout
+           android:background="#dddddd"
+           android:gravity="center"
            android:layout_width="match_parent"
-           android:layout_marginBottom="30dp"
-           android:layout_height="wrap_content" />
+           android:layout_height="50dp">
+           <ImageView
+               android:id="@+id/iv_rotate"
+               android:layout_width="30dp"
+               android:src="@mipmap/icon_zheng"
+               android:layout_height="30dp" />
+       </LinearLayout>
 
    </LinearLayout>
 

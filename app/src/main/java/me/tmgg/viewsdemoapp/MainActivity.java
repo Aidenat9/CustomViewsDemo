@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -52,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(),ScheduledThreadpoolActivity.class));
             }
         });
+        ImageView imageView = findViewById(R.id.iv_rotate);
+        imageView.startAnimation(AnimationUtils.loadAnimation(this,R.anim.anim_rotate_leftbottom));
         AbilityMapView abilityMapView = findViewById(R.id.abilityView);
 
         AbilityBean 生存 = new AbilityBean(90f, "生存");
