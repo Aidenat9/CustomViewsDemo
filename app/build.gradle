@@ -14,14 +14,30 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
-        release {
+        debug {
+            versionNameSuffix "_debug" //versionName的后缀
             minifyEnabled false
+            shrinkResources false
+        }
+        release {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
+            shrinkResources true  // 移除无用的resource文件
         }
     }
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
+    }
+    android {
+        lintOptions {
+            abortOnError true
+            ignoreWarnings false
+            warningsAsErrors false
+            check('LogUse', 'SystemOut')
+            lintConfig file('lint.xml')
+        }
     }
 }
 
@@ -44,4 +60,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //gson adapter
+    implementation 'q.rorbin:badgeview:1.1.2'
 }

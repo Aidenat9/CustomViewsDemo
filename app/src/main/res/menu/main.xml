@@ -41,7 +41,18 @@
         android:title="fullBottomSheetDialogFragment"
         app:showAsAction="collapseActionView"/>
     <item
+        android:id="@+id/simpleBehavior"
+        android:title="simpleBehavior"
+        app:showAsAction="collapseActionView"/>
+    <item
+        android:id="@+id/demoDetailBehavior"
+        android:title="demoDetailBehavior"
+        app:showAsAction="collapseActionView"/>
+    <item
         android:id="@+id/diffFragment"
         android:title="diffUtilRecyclerView"
+        app:showAsAction="collapseActionView"/>
+    <item android:id="@+id/vetticaltab"
+        android:title="vetticaltab"
         app:showAsAction="collapseActionView"/>
 </menu>

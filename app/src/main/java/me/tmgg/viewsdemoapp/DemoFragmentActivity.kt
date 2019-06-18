@@ -44,6 +44,15 @@ class DemoFragmentActivity : AppCompatActivity() {
             R.id.diffFragment->{
                 transaction.replace(R.id.framelayout, DiffRecyclerViewFragment());
             }
+            R.id.simpleBehavior->{
+                transaction.replace(R.id.framelayout, TestSimpleBehaviorFragment());
+            }
+            R.id.demoDetailBehavior->{
+                transaction.replace(R.id.framelayout, GoodsDetailBehaviorFragment());
+            }
+            R.id.vetticaltab->{
+                transaction.replace(R.id.framelayout, GoodsDetailBehaviorFragment());
+            }
             else -> {
             }
         }

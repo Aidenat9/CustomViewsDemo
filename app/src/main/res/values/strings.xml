@@ -14,4 +14,6 @@
 
     <string name="clip_button">Enabled outline clipping</string>
     <string name="unclip_button">Disable outline clipping</string>
+
+    <string name="behavior_sample_title">me.tmgg.viewsdemoapp.behavior.SimpleTitleBehavior</string>
 </resources>
