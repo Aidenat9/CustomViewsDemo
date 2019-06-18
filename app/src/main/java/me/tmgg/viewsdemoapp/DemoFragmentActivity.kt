@@ -53,6 +53,9 @@ class DemoFragmentActivity : AppCompatActivity() {
             R.id.vetticaltab->{
                 transaction.replace(R.id.framelayout, GoodsDetailBehaviorFragment());
             }
+            R.id.listview->{
+                transaction.replace(R.id.framelayout, ListViewFragment());
+            }
             else -> {
             }
         }
