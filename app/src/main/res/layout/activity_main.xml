@@ -112,17 +112,12 @@
            <!--android:layout_marginBottom="30dp"-->
            <!--android:layout_height="wrap_content" />-->
 
-       <LinearLayout
-           android:background="#dddddd"
-           android:gravity="center"
-           android:layout_width="match_parent"
-           android:layout_height="50dp">
-           <ImageView
-               android:id="@+id/iv_rotate"
-               android:layout_width="30dp"
-               android:src="@mipmap/icon_zheng"
-               android:layout_height="30dp" />
-       </LinearLayout>
+       <me.tmgg.viewsdemoapp.widgets.ArcView
+           android:layout_width="100dp"
+           android:layout_marginTop="20dp"
+           app:color="@color/bg_green"
+           android:layout_gravity="center_horizontal"
+           android:layout_height="100dp" />
 
 
    </LinearLayout>

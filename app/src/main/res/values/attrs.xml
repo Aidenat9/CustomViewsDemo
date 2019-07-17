@@ -21,4 +21,7 @@
         <attr name="tab_paddingEnd" format="dimension"/>
         <attr name="tab_paddingBottom" format="dimension"/>-->
     </declare-styleable>
+    <declare-styleable name="ArcView">
+        <attr name="color" format="color"/>
+    </declare-styleable>
 </resources>
