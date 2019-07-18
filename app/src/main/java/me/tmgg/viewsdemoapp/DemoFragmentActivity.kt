@@ -56,6 +56,9 @@ class DemoFragmentActivity : AppCompatActivity() {
             R.id.listview->{
                 transaction.replace(R.id.framelayout, ListViewFragment());
             }
+            R.id.ripple->{
+                transaction.replace(R.id.framelayout, RippleFragment());
+            }
             else -> {
             }
         }
