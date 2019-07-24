@@ -42,22 +42,25 @@ class DemoFragmentActivity : AppCompatActivity() {
                 fullSheetDialogFragment.show(supportFragmentManager,"fullSheetDialogFragment")
             }
             R.id.diffFragment->{
-                transaction.replace(R.id.framelayout, DiffRecyclerViewFragment());
+                transaction.replace(R.id.framelayout, DiffRecyclerViewFragment())
             }
             R.id.simpleBehavior->{
-                transaction.replace(R.id.framelayout, TestSimpleBehaviorFragment());
+                transaction.replace(R.id.framelayout, TestSimpleBehaviorFragment())
             }
             R.id.demoDetailBehavior->{
-                transaction.replace(R.id.framelayout, GoodsDetailBehaviorFragment());
+                transaction.replace(R.id.framelayout, GoodsDetailBehaviorFragment())
             }
             R.id.vetticaltab->{
-                transaction.replace(R.id.framelayout, GoodsDetailBehaviorFragment());
+                transaction.replace(R.id.framelayout, GoodsDetailBehaviorFragment())
             }
             R.id.listview->{
-                transaction.replace(R.id.framelayout, ListViewFragment());
+                transaction.replace(R.id.framelayout, ListViewFragment())
             }
             R.id.ripple->{
-                transaction.replace(R.id.framelayout, RippleFragment());
+                transaction.replace(R.id.framelayout, RippleFragment())
+            }
+            R.id.paletee_blur->{
+                transaction.replace(R.id.framelayout, PaleteeBlurFragment())
             }
             else -> {
             }

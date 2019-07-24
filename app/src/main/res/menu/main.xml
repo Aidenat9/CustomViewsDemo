@@ -58,4 +58,7 @@
     <item android:id="@+id/ripple"
         android:title="ripple"
         app:showAsAction="collapseActionView"/>
+    <item android:id="@+id/paletee_blur"
+        android:title="paletee_blur"
+        app:showAsAction="collapseActionView"/>
 </menu>
