@@ -40,6 +40,10 @@ public class ActivityBrowse extends AppCompatActivity {
         initData();
     }
 
+    /**
+     * 1.退出时候执行这里（上个页面的onActivityReenter方法接受，然后在和onMapSharedElements判断）
+     * 2.和onMapSharedElements配合
+     */
     @Override
     public void finishAfterTransition() {
         mIsReturning = true;
@@ -80,6 +84,7 @@ public class ActivityBrowse extends AppCompatActivity {
 
         @Override
         public void onMapSharedElements(List<String> names, Map<String, View> sharedElements) {
+            //退出的时候执行这里
             if (mIsReturning) {
                 ImageView sharedElement = mCurrentDetailsFragment.getAlbumImage();
                 if (sharedElement == null) {

@@ -1,36 +1,43 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<me.tmgg.viewsdemoapp.picpreview.ElasticDragDismissFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dragFramelayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <View
-            android:id="@+id/view_background"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/holo_purple" />
+            android:layout_height="300dp">
 
-        <ImageView
-            android:id="@+id/image_detail_picture"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_alignParentBottom="true"
-            android:scaleType="fitXY"
-            android:contentDescription="@string/app_name" />
+            <View
+                android:id="@+id/view_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/holo_purple"
+                android:visibility="invisible" />
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/image_detail_picture"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_alignParentBottom="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/text_detail_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:text="app"
-        android:textSize="32sp"
-        android:textColor="@android:color/black" />
+        </RelativeLayout>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/text_detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="app"
+            android:textColor="@android:color/black"
+            android:textSize="32sp" />
+    </LinearLayout>
+
+</me.tmgg.viewsdemoapp.picpreview.ElasticDragDismissFrameLayout>

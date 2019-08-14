@@ -3,11 +3,13 @@ package me.tmgg.viewsdemoapp.picpreview;
 
 import android.animation.Animator;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.transition.Transition;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +20,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 
 import me.tmgg.viewsdemoapp.R;
 
@@ -30,6 +28,7 @@ public class DetailFragment extends Fragment {
 
     public static final String ARG_CURRENT_POSITION = "current_position";
     public static final String ARG_START_POSITION = "start_position";
+    private ElasticDragDismissFrameLayout dragFramelayout;
 
     public static DetailFragment newInstance(int currentPosition, int startPosition) {
         Bundle args = new Bundle();
@@ -51,34 +50,43 @@ public class DetailFragment extends Fragment {
         mStartPosition = getArguments().getInt(ARG_START_POSITION);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
+        dragFramelayout = rootView.findViewById(R.id.dragFramelayout);
+        if (null != dragFramelayout) {
+            dragFramelayout.addListener(new ElasticDragDismissFrameLayout.ElasticDragDismissCallback() {
+                @Override
+                public void onDragDismissed() {
+                    super.onDragDismissed();
+                    //exit
+                    FragmentActivity activity = getActivity();
+                    if (activity instanceof ActivityBrowse) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            ((ActivityBrowse) activity).onBackPressed();
+                        }
+                    }
+                }
+            });
+            dragFramelayout.setDragElasticity(2.0f);
+            dragFramelayout.halfDistanceRequired();
+        }
         final View viewBackground = rootView.findViewById(R.id.view_background);
         mAlbumImage = rootView.findViewById(R.id.image_detail_picture);
         TextView textTitle = rootView.findViewById(R.id.text_detail_title);
         textTitle.setText("美女" + mCurrentPosition);
         mAlbumImage.setTransitionName(ImageConstants.IMAGE_SOURCE[mCurrentPosition]);
         Glide.with(getActivity()).load(ImageConstants.IMAGE_SOURCE[mCurrentPosition])
-                .addListener(new RequestListener<Drawable>() {
-                    @Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        startPostponedEnterTransition();
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        startPostponedEnterTransition();
-                        return false;
-                    }
-                })
                 .into(mAlbumImage);
+        startPostponedEnterTransition();
+
         if (mStartPosition == mCurrentPosition) {
             getActivity().getWindow().getSharedElementEnterTransition().addListener(new Transition.TransitionListener() {
                 @Override
                 public void onTransitionStart(Transition transition) {
                     viewBackground.setVisibility(View.GONE);
+                    mAlbumImage.setVisibility(View.INVISIBLE);
                 }
 
                 @Override
@@ -91,6 +99,7 @@ public class DetailFragment extends Fragment {
 
                     animationBottom.setDuration(500L);
                     animationBottom.start();
+                    mAlbumImage.setVisibility(View.VISIBLE);
                     getActivity().getWindow().getSharedElementEnterTransition().removeListener(this);
                 }
 

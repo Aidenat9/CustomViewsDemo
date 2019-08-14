@@ -41,7 +41,6 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<RecyclerCardAdapte
 
 	@Override
 	public void onBindViewHolder(CardHolder holder, int position) {
-//		holder.mAlbumImage.setTag(null);
 		Glide.with(mContext).load(ImageConstants.IMAGE_SOURCE[position]).into(holder.mAlbumImage);
 		/**
 		 * 设置共享元素的名称
