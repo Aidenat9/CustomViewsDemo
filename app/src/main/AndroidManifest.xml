@@ -15,9 +15,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppTheme.WindowTransition"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ScheduledThreadpoolActivity"/>
+
+        <activity android:name=".ScheduledThreadpoolActivity" />
         <activity
             android:name=".TwofloorDemoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -34,6 +35,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".picpreview.PreviewPictureActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity android:name=".PicCommonActivity"
+            android:label="共享元素实例－更新共享元素"
+            android:theme="@style/AppTheme"
+            />
+        <activity android:name=".picpreview.ActivityBrowse"
+            android:screenOrientation="portrait"
+            android:label="共享元素实例－展示图片大图"
+            android:theme="@style/AppTheme"/>
 
     </application>
 

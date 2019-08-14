@@ -16,4 +16,9 @@
     <string name="unclip_button">Disable outline clipping</string>
 
     <string name="behavior_sample_title">me.tmgg.viewsdemoapp.behavior.SimpleTitleBehavior</string>
+    <string name="transition_avatar">avatar</string>
+    <string name="transition_name">name%1$d:%2$d</string>
+    <string name="transition_topic_icon">topic_icon</string>
+
+
 </resources>

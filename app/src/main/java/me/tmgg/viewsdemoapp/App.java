@@ -3,6 +3,8 @@ package me.tmgg.viewsdemoapp;
 import android.app.Application;
 import android.util.Log;
 
+import com.bumptech.glide.request.target.ViewTarget;
+
 /**
  * @author sunwei
  * email：tianmu19@gmail.com
@@ -17,6 +19,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        ViewTarget.setTagId(R.id.glideIndexTag);
     }
 
     public static App getInstance(){

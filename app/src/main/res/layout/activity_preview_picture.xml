@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <me.tmgg.viewsdemoapp.picpreview.HackyViewPager android:id="@+id/view_pager" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <android.support.v4.widget.ContentLoadingProgressBar android:layout_gravity="center" android:id="@+id/loading_bar" android:visibility="gone" android:layout_width="56dp" android:layout_height="56dp" android:layout_centerInParent="true" style="?android:attr/progressBarStyleLarge"/>
+        <TextView android:textSize="18sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="bottom|left|center_vertical|center_horizontal|center" android:id="@+id/tv_pager_indicator" android:layout_width="80dp" android:layout_height="56dp" android:text="1/1"/>
+        <TextView android:textSize="16sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="bottom|right|center_vertical|center_horizontal|center" android:id="@+id/tv_download" android:layout_width="100dp" android:layout_height="56dp" android:text="保存" android:shadowColor="#000000" android:shadowDx="3" android:shadowDy="3" android:shadowRadius="10"/>
+    </FrameLayout>
+</FrameLayout>
