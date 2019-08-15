@@ -28,7 +28,7 @@
            style="@style/button_default_style" />
        <Button
            android:id="@+id/btn_piccommon"
-           android:text="btn_piccommon"
+           android:text="图片浏览(共享元素)"
            style="@style/button_default_style" />
 
 

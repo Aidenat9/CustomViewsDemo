@@ -1,13 +1,21 @@
 package me.tmgg.viewsdemoapp.picpreview;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
 import me.tmgg.viewsdemoapp.R;
 
@@ -41,11 +49,24 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<RecyclerCardAdapte
 
 	@Override
 	public void onBindViewHolder(CardHolder holder, int position) {
-		Glide.with(mContext).load(ImageConstants.IMAGE_SOURCE[position]).into(holder.mAlbumImage);
+		Glide.with(mContext).asBitmap().load(ImageConstants.IMAGE_SOURCE[position])
+				.into(new CustomTarget<Bitmap>() {
+					@Override
+					public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+						holder.mAlbumImage.setImage(ImageSource.bitmap(resource));
+					}
+
+					@Override
+					public void onLoadCleared(@Nullable Drawable placeholder) {
+						holder.mAlbumImage.setImage(ImageSource.resource(0));
+					}
+				});
 		/**
 		 * 设置共享元素的名称
 		 */
-		holder.mAlbumImage.setTransitionName(ImageConstants.IMAGE_SOURCE[position]);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+			holder.mAlbumImage.setTransitionName(ImageConstants.IMAGE_SOURCE[position]);
+		}
 		holder.mAlbumImage.setTag(ImageConstants.IMAGE_SOURCE[position]);
 	}
 
@@ -56,7 +77,7 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<RecyclerCardAdapte
 
 	static class CardHolder extends RecyclerView.ViewHolder {
 
-		final ImageView mAlbumImage;
+		final SubsamplingScaleImageView mAlbumImage;
 
 		CardHolder(View itemView) {
 			super(itemView);

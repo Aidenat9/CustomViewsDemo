@@ -1,19 +1,11 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-        <!-- 想使用5.0的Activity过渡动画，就要加上这个，或者在代码里面设置 -->
-        <item name="android:windowContentTransitions">true</item>
-        <!--下面的内容要在5.0上才好用,启用转换过程都会更加流畅自然,指定进入和退出的动画可以重叠 -->
-        <item name="android:windowAllowEnterTransitionOverlap">true</item>
-        <item name="android:windowAllowReturnTransitionOverlap">true</item>
-        <!-- 指定我们使用sharedElement时的进入和退出动画 -->
-        <item name="android:windowSharedElementEnterTransition">@transition/change_bounds</item>
-        <item name="android:windowSharedElementExitTransition">@transition/change_bounds</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.WindowTransition" parent="AppTheme">
@@ -60,6 +52,7 @@
         <item name="android:background">#9c27b0</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">#ffffff</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="MenuStyle">
@@ -73,5 +66,13 @@
         <item name="android:layout_height">45dp</item>
         <item name="android:layout_gravity">right|bottom</item>
     </style>
+
+    <style name="WebViewTheme" parent="AppTheme">
+        <item name="windowActionModeOverlay">true</item>
+        <item name="colorPrimaryDark">#66000000</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 
 </resources>

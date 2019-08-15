@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.WindowTransition"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".picpreview.ImagePreviewActivity"></activity>
+
         <activity android:name=".ScheduledThreadpoolActivity" />
         <activity
             android:name=".TwofloorDemoActivity"
@@ -44,10 +44,12 @@
             android:label="共享元素实例－更新共享元素"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".picpreview.ActivityBrowse"
-            android:label="共享元素实例－展示图片大图"
+            android:name=".picpreview.ImagePreviewActivity"
+            android:theme="@style/WebViewTheme"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:hardwareAccelerated="true"
+            android:label="图片全屏浏览页面"
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>
