@@ -31,7 +31,6 @@
            android:text="图片浏览(共享元素)"
            style="@style/button_default_style" />
 
-
        <me.tmgg.viewsdemoapp.widgets.SinkFrameLayout
            android:id="@+id/sfl"
            android:background="?attr/selectableItemBackground"

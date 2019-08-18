@@ -10,12 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.davemorrissey.labs.subscaleview.ImageSource;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
 import me.tmgg.viewsdemoapp.R;
 
@@ -35,8 +34,9 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<RecyclerCardAdapte
 		mListener = listener;
 	}
 
+	@NonNull
 	@Override
-	public CardHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+	public CardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 		final CardHolder holder = new CardHolder(LayoutInflater.from(mContext).inflate(R.layout.item_card_album_image, parent, false));
 		holder.mAlbumImage.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -48,17 +48,17 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<RecyclerCardAdapte
 	}
 
 	@Override
-	public void onBindViewHolder(CardHolder holder, int position) {
+	public void onBindViewHolder(@NonNull CardHolder holder, int position) {
 		Glide.with(mContext).asBitmap().load(ImageConstants.IMAGE_SOURCE[position])
 				.into(new CustomTarget<Bitmap>() {
 					@Override
 					public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-						holder.mAlbumImage.setImage(ImageSource.bitmap(resource));
+						holder.mAlbumImage.setImageBitmap((resource));
 					}
 
 					@Override
 					public void onLoadCleared(@Nullable Drawable placeholder) {
-						holder.mAlbumImage.setImage(ImageSource.resource(0));
+						holder.mAlbumImage.setImageBitmap(null);
 					}
 				});
 		/**
@@ -77,11 +77,11 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<RecyclerCardAdapte
 
 	static class CardHolder extends RecyclerView.ViewHolder {
 
-		final SubsamplingScaleImageView mAlbumImage;
+		final ImageView mAlbumImage;
 
 		CardHolder(View itemView) {
 			super(itemView);
-			mAlbumImage = itemView.findViewById(R.id.main_card_album_image);
+			mAlbumImage = (ImageView) itemView;
 		}
 	}
 }

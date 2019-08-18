@@ -1,5 +1,6 @@
 package me.tmgg.viewsdemoapp.picpreview;
 
+import android.annotation.SuppressLint;
 import android.app.SharedElementCallback;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,10 +13,12 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Map;
@@ -85,8 +88,10 @@ public class ImagePreviewActivity extends AppCompatActivity {
                         if (sharedElement == null) {
                             names.clear();
                             sharedElements.clear();
+                            Log.e("tag","222sharedElement == null");
                         } else if (mStartPosition != mCurrentPosition) {
                             //把原来的共享元素删除，添加新的共享元素数据
+                            Log.e("tag","222mStartPosition != mCurrentPosition");
                             names.clear();
                             sharedElements.clear();
                             names.add(sharedElement.getTransitionName());
@@ -98,11 +103,17 @@ public class ImagePreviewActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        this.finishAfterTransition();
+    }
+
     /**
      * 返回时执行代码
      */
     @Override
     public void finishAfterTransition() {
+        Log.e("tag","222finishAfterTransition");
         mIsReturning = true;
         Intent data = new Intent();
         data.putExtra(PicCommonActivity.EXTRA_START_POSITION, mStartPosition);
@@ -115,7 +126,7 @@ public class ImagePreviewActivity extends AppCompatActivity {
         imageSize = ImageConstants.IMAGE_SOURCE.length;
         HackyViewPager viewPager = findViewById(R.id.view_pager);
         contentLoadingProgressBar = findViewById(R.id.loading_bar);
-        TextView tvIndicator = findViewById(R.id.tv_pager_indicator);
+        @SuppressLint("CutPasteId") TextView tvIndicator = findViewById(R.id.tv_pager_indicator);
         TextView tvSaveImage = findViewById(R.id.tv_pager_indicator);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager()));
@@ -162,6 +173,7 @@ public class ImagePreviewActivity extends AppCompatActivity {
         @Override
         public void setPrimaryItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
             super.setPrimaryItem(container, position, object);
+//            Log.e("tag","setPrimaryItem  "+position);
             mCurrentDetailsFragment = (ImageDetailFragment) object;
         }
 
@@ -175,6 +187,6 @@ public class ImagePreviewActivity extends AppCompatActivity {
      * 下载保存图片到sd卡
      */
     private void saveImage2SDcard() {
-
+        Toast.makeText(this,"待实现保存图片",Toast.LENGTH_SHORT).show();
     }
 }

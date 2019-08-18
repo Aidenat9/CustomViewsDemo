@@ -11,16 +11,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.davemorrissey.labs.subscaleview.ImageSource;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
 import me.tmgg.viewsdemoapp.R;
 
@@ -35,8 +35,8 @@ import me.tmgg.viewsdemoapp.R;
 public class ImageDetailFragment extends Fragment {
 
     private Context mContext;
-    private Activity mActivity;
-    private SubsamplingScaleImageView scaleImageView;
+    private AppCompatActivity mActivity;
+    private ImageView scaleImageView;
 
     public ImageDetailFragment() {
         // Required empty public constructor
@@ -66,7 +66,7 @@ public class ImageDetailFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        mActivity = activity;
+        mActivity = (AppCompatActivity) activity;
     }
 
     @Override
@@ -89,8 +89,6 @@ public class ImageDetailFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ElasticDragDismissFrameLayout dragDismissFrameLayout = view.findViewById(R.id.dragDismissFrameLayout);
         scaleImageView = view.findViewById(R.id.iv_picture);
-        scaleImageView.setMaxScale(5.0f);
-        scaleImageView.setMinScale(2.0f);
         dragDismissFrameLayout.setDragElasticity(2.0f);
         dragDismissFrameLayout.halfDistanceRequired();
         dragDismissFrameLayout.addListener(new ElasticDragDismissFrameLayout.ElasticDragDismissCallback() {
@@ -99,7 +97,7 @@ public class ImageDetailFragment extends Fragment {
                 super.onDragDismissed();
                 if (null != mActivity && mActivity instanceof ImagePreviewActivity) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        mActivity.onBackPressed();
+                        mActivity.finishAfterTransition();
                     } else {
                         mActivity.finish();
                     }
@@ -112,8 +110,8 @@ public class ImageDetailFragment extends Fragment {
         Glide.with(mContext).asBitmap().load(ImageConstants.IMAGE_SOURCE[mCurrentPosition]).into(new CustomTarget<Bitmap>() {
             @Override
             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                scaleImageView.setImageBitmap((resource));
                 startPostponedEnterTransition2();
-                scaleImageView.setImage(ImageSource.bitmap(resource));
             }
 
             @Override
@@ -121,6 +119,7 @@ public class ImageDetailFragment extends Fragment {
                 startPostponedEnterTransition2();
             }
         });
+
         /**
          * 动画开始前隐藏图片
          */
@@ -182,6 +181,9 @@ public class ImageDetailFragment extends Fragment {
      */
     private void startPostponedEnterTransition2() {
         if (mCurrentPosition == mStartPosition) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mActivity.startPostponedEnterTransition();
+            }
             scaleImageView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
                 @Override
                 public boolean onPreDraw() {
