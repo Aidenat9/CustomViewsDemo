@@ -30,6 +30,10 @@
            android:id="@+id/btn_piccommon"
            android:text="图片浏览(共享元素)"
            style="@style/button_default_style" />
+       <Button
+           android:id="@+id/btn_views"
+           android:text="view绘制"
+           style="@style/button_default_style" />
 
        <me.tmgg.viewsdemoapp.widgets.SinkFrameLayout
            android:id="@+id/sfl"
@@ -73,8 +77,8 @@
 
        <me.tmgg.viewsdemoapp.widgets.DemoView
            android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:visibility="gone" />
+           android:layout_height="200dp"
+           android:visibility="visible" />
 
        <com.qmuiteam.qmui.layout.QMUIFrameLayout
            android:layout_width="match_parent"
@@ -121,6 +125,11 @@
            app:color="@color/bg_green"
            android:layout_gravity="center_horizontal"
            android:layout_height="100dp" />
+
+       <me.tmgg.viewsdemoapp.widgets.DashboardView
+           android:layout_width="400dp"
+           android:layout_gravity="center_horizontal"
+           android:layout_height="400dp" />
 
        
 

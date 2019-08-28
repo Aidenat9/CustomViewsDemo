@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -54,14 +55,14 @@ public class DemoView extends View {
 
         //scale
         // 将坐标系原点移动到画布正中心
-        int mWidth = getWidth();
-        int mHeight = getHeight();
-        canvas.translate(mWidth / 2, mHeight / 2);
+//        int mWidth = getWidth();
+//        int mHeight = getHeight();
+//        canvas.translate(mWidth / 2, mHeight / 2);
 //
-//        RectF rect = new RectF(0,-400,400,0);   // 矩形区域
+        RectF rect = new RectF(0,-400,400,0);   // 矩形区域
 //
-        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
-//        canvas.drawRect(rect,mPaint);
+        mPaint.setColor(Color.BLUE);           // 绘制黑色矩形
+        canvas.drawRect(rect,mPaint);
 //
 //        canvas.scale(-0.5f,-0.5f,200,0);          // (先画布缩放再反转  <-- 缩放中心向右偏移了200个单位
 //
@@ -98,5 +99,23 @@ public class DemoView extends View {
 //            canvas.rotate(10);
 //        }
 
+    }
+
+    /**
+     * 画子view
+     * @param canvas
+     */
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+    }
+
+    /**
+     * api23引入，画滑动条及边缘渐变
+     * @param canvas
+     */
+    @Override
+    public void onDrawForeground(Canvas canvas) {
+        super.onDrawForeground(canvas);
     }
 }

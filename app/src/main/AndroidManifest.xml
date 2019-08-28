@@ -17,8 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".share_elements.ShareElement2Activity"></activity>
-        <activity android:name=".share_elements.ShareElement1Activity" />
+        <activity android:name=".CustomViewActivity"></activity>
         <activity android:name=".ScheduledThreadpoolActivity" />
         <activity
             android:name=".TwofloorDemoActivity"

@@ -123,36 +123,36 @@ public class ImageDetailFragment extends Fragment {
         /**
          * 动画开始前隐藏图片
          */
-        if (mCurrentPosition == mStartPosition) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mActivity.getWindow().getSharedElementEnterTransition().addListener(new android.transition.Transition.TransitionListener() {
-                    @Override
-                    public void onTransitionStart(android.transition.Transition transition) {
-                        scaleImageView.setVisibility(View.INVISIBLE);
-                    }
-
-                    @Override
-                    public void onTransitionEnd(android.transition.Transition transition) {
-                        scaleImageView.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onTransitionCancel(android.transition.Transition transition) {
-
-                    }
-
-                    @Override
-                    public void onTransitionPause(android.transition.Transition transition) {
-
-                    }
-
-                    @Override
-                    public void onTransitionResume(android.transition.Transition transition) {
-
-                    }
-                });
-            }
-        }
+//        if (mCurrentPosition == mStartPosition) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                mActivity.getWindow().getSharedElementEnterTransition().addListener(new android.transition.Transition.TransitionListener() {
+//                    @Override
+//                    public void onTransitionStart(android.transition.Transition transition) {
+//                        scaleImageView.setVisibility(View.INVISIBLE);
+//                    }
+//
+//                    @Override
+//                    public void onTransitionEnd(android.transition.Transition transition) {
+//                        scaleImageView.setVisibility(View.VISIBLE);
+//                    }
+//
+//                    @Override
+//                    public void onTransitionCancel(android.transition.Transition transition) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onTransitionPause(android.transition.Transition transition) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onTransitionResume(android.transition.Transition transition) {
+//
+//                    }
+//                });
+//            }
+//        }
     }
 
     /**

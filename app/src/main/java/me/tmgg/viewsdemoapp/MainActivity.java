@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(),PicCommonActivity.class));
             }
         });
+        findViewById(R.id.btn_views).setOnClickListener(view->{
+            startActivity(new Intent(getBaseContext(),CustomViewActivity.class));
+        });
         AbilityMapView abilityMapView = findViewById(R.id.abilityView);
 
         AbilityBean 生存 = new AbilityBean(90f, "生存");
