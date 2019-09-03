@@ -71,45 +71,45 @@
 
        <me.tmgg.viewsdemoapp.widgets.LoadingText
            android:id="@+id/loadingText"
-           android:layout_marginTop="20dp"
+           android:layout_marginTop="10dp"
            android:layout_width="100dp"
            android:layout_height="100dp" />
 
-       <me.tmgg.viewsdemoapp.widgets.DemoView
-           android:layout_width="match_parent"
-           android:layout_height="200dp"
-           android:visibility="visible" />
+       <!--<me.tmgg.viewsdemoapp.widgets.DemoView-->
+           <!--android:layout_width="match_parent"-->
+           <!--android:layout_height="200dp"-->
+           <!--android:visibility="visible" />-->
 
-       <com.qmuiteam.qmui.layout.QMUIFrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="120dp">
+       <!--<com.qmuiteam.qmui.layout.QMUIFrameLayout-->
+           <!--android:layout_width="match_parent"-->
+           <!--android:layout_height="120dp">-->
 
-           <ImageView
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:scaleType="centerCrop"
-               android:src="@mipmap/ic_launcher" />
+           <!--<ImageView-->
+               <!--android:layout_width="match_parent"-->
+               <!--android:layout_height="match_parent"-->
+               <!--android:scaleType="centerCrop"-->
+               <!--android:src="@mipmap/ic_launcher" />-->
 
-       </com.qmuiteam.qmui.layout.QMUIFrameLayout>
+       <!--</com.qmuiteam.qmui.layout.QMUIFrameLayout>-->
 
-       <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundFrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="120dp"
-           android:layout_margin="15dp"
-           android:elevation="6dp"
-           android:outlineProvider="paddedBounds"
-           app:qmui_borderColor="@color/qmui_config_color_10_pure_black"
-           app:qmui_radius="10dp">
+       <!--<com.qmuiteam.qmui.widget.roundwidget.QMUIRoundFrameLayout-->
+           <!--android:layout_width="match_parent"-->
+           <!--android:layout_height="120dp"-->
+           <!--android:layout_margin="15dp"-->
+           <!--android:elevation="6dp"-->
+           <!--android:outlineProvider="paddedBounds"-->
+           <!--app:qmui_borderColor="@color/qmui_config_color_10_pure_black"-->
+           <!--app:qmui_radius="10dp">-->
 
-           <View
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:background="#228899" />
-       </com.qmuiteam.qmui.widget.roundwidget.QMUIRoundFrameLayout>
+           <!--<View-->
+               <!--android:layout_width="match_parent"-->
+               <!--android:layout_height="match_parent"-->
+               <!--android:background="#228899" />-->
+       <!--</com.qmuiteam.qmui.widget.roundwidget.QMUIRoundFrameLayout>-->
 
 
        <me.tmgg.viewsdemoapp.widgets.ability.AbilityMapView
-           android:layout_marginTop="100dp"
+           android:layout_marginTop="5dp"
            android:id="@+id/abilityView"
            android:layout_width="300dp"
            android:layout_height="300dp" />
@@ -121,15 +121,20 @@
 
        <me.tmgg.viewsdemoapp.widgets.ArcView
            android:layout_width="100dp"
-           android:layout_marginTop="20dp"
+           android:layout_marginTop="15dp"
            app:color="@color/bg_green"
            android:layout_gravity="center_horizontal"
            android:layout_height="100dp" />
 
        <me.tmgg.viewsdemoapp.widgets.DashboardView
-           android:layout_width="400dp"
+           android:layout_width="260dp"
+           android:layout_marginTop="15dp"
            android:layout_gravity="center_horizontal"
-           android:layout_height="400dp" />
+           android:layout_height="260dp" />
+       <me.tmgg.viewsdemoapp.widgets.CustomTextView
+           android:layout_width="match_parent"
+           android:layout_marginTop="15dp"
+           android:layout_height="190dp" />
 
        
 

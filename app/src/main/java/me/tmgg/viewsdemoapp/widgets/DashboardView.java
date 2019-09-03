@@ -25,13 +25,13 @@ import me.tmgg.viewsdemoapp.utils.Utils;
 public class DashboardView extends View {
     private Paint pointerPaint;
     private Paint paint;
-    private static final float RADIUS = Utils.dp2px(150);
+    private static final float RADIUS = Utils.dp2px(120);
     private static final int ANGLE = 120;
     private float HEIGHT_KEDU = Utils.dp2px(10);
-    private float WIDTH_KEDU = Utils.dp2px(2);
-    private static final float LENGTH = Utils.dp2px(100);
+    private float WIDTH_KEDU = Utils.dp2px(1);
+    private static final float LENGTH = Utils.dp2px(90);
     //当前指针在第几刻度
-    private int index = 2;
+    private int index = 5;
     Path dashPath = new Path();
     private RectF rectF;
     private int halfWidth;
