@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         findViewById(R.id.btn_views).setOnClickListener(view->{
-            startActivity(new Intent(getBaseContext(),CustomViewActivity.class));
+            startActivity(new Intent(getBaseContext(),ViewsActivity.class));
         });
         AbilityMapView abilityMapView = findViewById(R.id.abilityView);
 

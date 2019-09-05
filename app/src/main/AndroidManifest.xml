@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CustomViewActivity"></activity>
+        <activity android:name=".ViewsActivity"></activity>
+        <activity android:name=".CustomViewActivity" />
         <activity android:name=".ScheduledThreadpoolActivity" />
         <activity
             android:name=".TwofloorDemoActivity"
