@@ -1,4 +1,4 @@
-package me.tmgg.viewsdemoapp;
+package me.tmgg.viewsdemoapp.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import me.tmgg.viewsdemoapp.R;
 
 public class ScheduledThreadpoolActivity extends AppCompatActivity {
 

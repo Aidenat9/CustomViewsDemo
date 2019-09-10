@@ -1,4 +1,4 @@
-package me.tmgg.viewsdemoapp
+package me.tmgg.viewsdemoapp.ui
 
 import android.os.Bundle
 import android.support.annotation.LayoutRes
@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_views.*
+import me.tmgg.viewsdemoapp.PageFragment
+import me.tmgg.viewsdemoapp.R
 
 class ViewsActivity : AppCompatActivity() {
     var dataList = mutableListOf<ViewsModel>()
@@ -17,6 +19,8 @@ class ViewsActivity : AppCompatActivity() {
         dataList.add(ViewsModel(R.layout.layout_telescope,"望远镜"))
         dataList.add(ViewsModel(R.layout.layout_textview,"textview"))
         dataList.add(ViewsModel(R.layout.layout_arc,"arc"))
+        dataList.add(ViewsModel(R.layout.layout_letterspace_textview,"letterspaceTV"))
+        dataList.add(ViewsModel(R.layout.layout_nopadding_textview,"nopaddingTV"))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

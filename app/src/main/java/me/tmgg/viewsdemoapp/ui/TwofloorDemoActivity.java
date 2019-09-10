@@ -1,4 +1,4 @@
-package me.tmgg.viewsdemoapp;
+package me.tmgg.viewsdemoapp.ui;
 
 import android.content.Intent;
 import android.os.Build;
@@ -19,6 +19,9 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.header.TwoLevelHeader;
 import com.scwang.smartrefresh.layout.listener.SimpleMultiPurposeListener;
+
+import me.tmgg.viewsdemoapp.DpUtils;
+import me.tmgg.viewsdemoapp.R;
 
 /**
  * @author sunwei

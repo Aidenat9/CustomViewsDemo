@@ -1,4 +1,4 @@
-package me.tmgg.viewsdemoapp
+package me.tmgg.viewsdemoapp.ui
 
 import android.os.Bundle
 import android.support.design.widget.BottomSheetDialog
@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import me.tmgg.viewsdemoapp.R
 import me.tmgg.viewsdemoapp.fragments.*
 
 class DemoFragmentActivity : AppCompatActivity() {
@@ -37,29 +38,29 @@ class DemoFragmentActivity : AppCompatActivity() {
                 val sheetDialogFragmentKt = ABottomSheetDialogFragment()
                 sheetDialogFragmentKt.show(supportFragmentManager, "CustomFragmentDialog")
             }
-            R.id.fullBottomSheetDialogFragment->{
+            R.id.fullBottomSheetDialogFragment ->{
                 val fullSheetDialogFragment = FullSheetDialogFragment()
                 fullSheetDialogFragment.show(supportFragmentManager,"fullSheetDialogFragment")
             }
-            R.id.diffFragment->{
+            R.id.diffFragment ->{
                 transaction.replace(R.id.framelayout, DiffRecyclerViewFragment())
             }
-            R.id.simpleBehavior->{
+            R.id.simpleBehavior ->{
                 transaction.replace(R.id.framelayout, TestSimpleBehaviorFragment())
             }
-            R.id.demoDetailBehavior->{
+            R.id.demoDetailBehavior ->{
                 transaction.replace(R.id.framelayout, GoodsDetailBehaviorFragment())
             }
-            R.id.vetticaltab->{
+            R.id.vetticaltab ->{
                 transaction.replace(R.id.framelayout, GoodsDetailBehaviorFragment())
             }
-            R.id.listview->{
+            R.id.listview ->{
                 transaction.replace(R.id.framelayout, ListViewFragment())
             }
-            R.id.ripple->{
+            R.id.ripple ->{
                 transaction.replace(R.id.framelayout, RippleFragment())
             }
-            R.id.paletee_blur->{
+            R.id.paletee_blur ->{
                 transaction.replace(R.id.framelayout, PaleteeBlurFragment())
             }
             else -> {

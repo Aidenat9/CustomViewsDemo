@@ -1,4 +1,4 @@
-package me.tmgg.viewsdemoapp;
+package me.tmgg.viewsdemoapp.ui;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import me.tmgg.viewsdemoapp.DpUtils;
+import me.tmgg.viewsdemoapp.R;
 import me.tmgg.viewsdemoapp.bean.Point;
 import me.tmgg.viewsdemoapp.widgets.evaluator.ChangeWidthEvalutor;
 import me.tmgg.viewsdemoapp.widgets.evaluator.ScaleAlhpaEvalutor;

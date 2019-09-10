@@ -42,4 +42,15 @@
         <attr name="rv_zoomScale" format="float" />
 
     </declare-styleable>
+    
+    <!--横向文字间隔-->
+    <declare-styleable name="LetterSpacingTextView">
+        <attr name="spacing" format="integer"/>
+    </declare-styleable>
+    <!--无上下间距-->
+    <declare-styleable name="NoPaddingTextView">
+        <attr name="removeDefaultPadding" format="boolean"/>
+    </declare-styleable>
+
+
 </resources>

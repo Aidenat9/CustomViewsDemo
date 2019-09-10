@@ -1,4 +1,4 @@
-package me.tmgg.viewsdemoapp;
+package me.tmgg.viewsdemoapp.ui;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import java.io.UnsupportedEncodingException;
+
+import me.tmgg.viewsdemoapp.R;
 
 public class WebActivity extends AppCompatActivity {
 

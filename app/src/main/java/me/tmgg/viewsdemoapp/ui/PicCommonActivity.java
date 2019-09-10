@@ -1,4 +1,4 @@
-package me.tmgg.viewsdemoapp;
+package me.tmgg.viewsdemoapp.ui;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -17,6 +17,7 @@ import android.view.View;
 import java.util.List;
 import java.util.Map;
 
+import me.tmgg.viewsdemoapp.R;
 import me.tmgg.viewsdemoapp.picpreview.ImageConstants;
 import me.tmgg.viewsdemoapp.picpreview.ImagePreviewActivity;
 import me.tmgg.viewsdemoapp.picpreview.RecyclerCardAdapter;

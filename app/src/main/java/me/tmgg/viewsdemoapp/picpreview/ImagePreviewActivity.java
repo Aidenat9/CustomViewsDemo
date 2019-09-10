@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 import kotlin.jvm.internal.Intrinsics;
-import me.tmgg.viewsdemoapp.PicCommonActivity;
+import me.tmgg.viewsdemoapp.ui.PicCommonActivity;
 import me.tmgg.viewsdemoapp.R;
 
 /**

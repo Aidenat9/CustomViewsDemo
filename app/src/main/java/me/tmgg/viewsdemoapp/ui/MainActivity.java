@@ -1,4 +1,4 @@
-package me.tmgg.viewsdemoapp;
+package me.tmgg.viewsdemoapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+import me.tmgg.viewsdemoapp.R;
 import me.tmgg.viewsdemoapp.widgets.LoadingText;
 import me.tmgg.viewsdemoapp.widgets.ability.AbilityBean;
 import me.tmgg.viewsdemoapp.widgets.ability.AbilityMapView;
@@ -60,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
         });
         findViewById(R.id.btn_views).setOnClickListener(view->{
             startActivity(new Intent(getBaseContext(),ViewsActivity.class));
+        });
+        findViewById(R.id.btn_alertwindow).setOnClickListener(view->{
+            startActivity(new Intent(getBaseContext(),SystemWindowActivity.class));
         });
         AbilityMapView abilityMapView = findViewById(R.id.abilityView);
 

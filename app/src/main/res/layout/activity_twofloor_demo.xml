@@ -15,7 +15,7 @@
         app:srlHeaderInsetStart="0dp"
         app:srlHeaderMaxDragRate="5"
         app:srlHeaderTriggerRate="3.1"
-        tools:context=".TwofloorDemoActivity">
+        tools:context=".ui.TwofloorDemoActivity">
 
         <com.scwang.smartrefresh.layout.header.TwoLevelHeader
             android:id="@+id/header"

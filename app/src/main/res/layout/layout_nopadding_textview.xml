@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00ff00"
+        android:singleLine="true"
+        android:text="ab孔乙己是站着喝酒而穿长衫的唯一的人。他身材很高" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <me.tmgg.viewsdemoapp.widgets.NoPaddingTextView
+        android:layout_width="match_parent"
+        android:background="#ff0000"
+        app:removeDefaultPadding="true"
+        android:layout_height="wrap_content"
+        android:text="ab孔乙己是站着喝酒而穿长衫的唯一的人。他身材很高，" />
+
+
+
+</LinearLayout>

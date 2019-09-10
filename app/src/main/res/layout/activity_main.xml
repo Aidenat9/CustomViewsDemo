@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="me.tmgg.viewsdemoapp.MainActivity">
+    tools:context="me.tmgg.viewsdemoapp.ui.MainActivity">
 
    <LinearLayout
        android:layout_width="match_parent"
@@ -34,7 +34,10 @@
            android:id="@+id/btn_views"
            android:text="自定义view绘制"
            style="@style/button_default_style" />
-
+       <Button
+           android:id="@+id/btn_alertwindow"
+           android:text="系统悬浮窗"
+           style="@style/button_default_style" />
        <me.tmgg.viewsdemoapp.widgets.SinkFrameLayout
            android:id="@+id/sfl"
            android:background="?attr/selectableItemBackground"
