@@ -21,6 +21,7 @@ class ViewsActivity : AppCompatActivity() {
         dataList.add(ViewsModel(R.layout.layout_arc,"arc"))
         dataList.add(ViewsModel(R.layout.layout_letterspace_textview,"letterspaceTV"))
         dataList.add(ViewsModel(R.layout.layout_nopadding_textview,"nopaddingTV"))
+        dataList.add(ViewsModel(R.layout.layout_surfaceview,"surfaceview"))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
