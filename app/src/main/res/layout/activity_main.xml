@@ -38,6 +38,10 @@
            android:id="@+id/btn_alertwindow"
            android:text="系统悬浮窗"
            style="@style/button_default_style" />
+       <Button
+           android:id="@+id/btn_scrollImageView"
+           android:text="滚动列表背景跟随变化"
+           style="@style/button_default_style" />
        <me.tmgg.viewsdemoapp.widgets.SinkFrameLayout
            android:id="@+id/sfl"
            android:background="?attr/selectableItemBackground"
