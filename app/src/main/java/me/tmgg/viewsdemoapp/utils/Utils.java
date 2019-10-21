@@ -1,6 +1,7 @@
 package me.tmgg.viewsdemoapp.utils;
 
 import android.content.res.Resources;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
 /**
@@ -12,7 +13,12 @@ import android.util.TypedValue;
  * <p>description：              </p>
  */
 public class Utils {
-        public static float dp2px(float dp) {
-            return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, Resources.getSystem().getDisplayMetrics());
-        }
+    public static float dp2px(float dp) {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, Resources.getSystem().getDisplayMetrics());
+    }
+
+    public static float getScreenHeight() {
+        DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
+        return displayMetrics.heightPixels;
+    }
 }

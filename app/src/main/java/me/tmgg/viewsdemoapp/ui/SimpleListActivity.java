@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.tmgg.viewsdemoapp.R;
+import me.tmgg.viewsdemoapp.utils.Utils;
 import me.tmgg.viewsdemoapp.widgets.OffsetLinearLayoutManager;
 import me.tmgg.viewsdemoapp.widgets.ScrollImageView;
 
@@ -24,6 +25,7 @@ public class SimpleListActivity extends AppCompatActivity {
     private List<String> datas = new ArrayList<>();
     private int x=0;
     private RecyclerView recyclerView;
+    private final int COUNTS = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,7 @@ public class SimpleListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview);
         OffsetLinearLayoutManager offsetLinearLayoutManager = new OffsetLinearLayoutManager(this);
         recyclerView.setLayoutManager(offsetLinearLayoutManager);
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < COUNTS; i++) {
             datas.add("sample item："+i);
         }
         Myadpter myadpter = new Myadpter(R.layout.item_simple_list,datas);
@@ -47,8 +49,8 @@ public class SimpleListActivity extends AppCompatActivity {
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 int scollYDistance = getScollYDistance();
-                Log.d(TAG,"scollYDistance: "+scollYDistance+"    itemHeight: "+getItemHeight());
-                percent = (float)scollYDistance/((float)12*getItemHeight());
+                percent = (float)scollYDistance/((float)COUNTS*getItemHeight()- Utils.getScreenHeight());
+                Log.d(TAG,"scollYDistance: "+scollYDistance+"    itemHeight: "+getItemHeight()+"  screenHeight: "+Utils.getScreenHeight());
                 Log.d(TAG,"percent: "+percent);
                 scrollImageView.setScrollOffset(percent);
                 //计算滑动距离占总高度的百分比，然后传给图片，图片按比例画当前的位置

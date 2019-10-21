@@ -4,9 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.ImageView;
 
 import me.tmgg.viewsdemoapp.R;
 
@@ -18,7 +18,7 @@ import me.tmgg.viewsdemoapp.R;
  * version：1.0
  * <p>description：    上下滚动图片          </p>
  */
-public class ScrollImageView extends ImageView {
+public class ScrollImageView extends AppCompatImageView {
 
     private int width;
     private Bitmap scaledBitmap;
@@ -65,8 +65,8 @@ public class ScrollImageView extends ImageView {
     private static final String TAG = "scrollImage";
 
     public void setScrollOffset(float percent) {
-        //根据百分比 算出滑动的开始
-        float scrollHeight = percent * targetHeight;
+        //根据百分比 算出滑动的开始(总滑动距离是targetHeight-getHeight())
+        float scrollHeight = percent * (targetHeight-getHeight());
         this.scrollOffset = -scrollHeight;
         Log.d(TAG,"percent: "+percent);
         if(percent<0||percent>1){
