@@ -89,6 +89,12 @@
            android:layout_width="300dp"
            android:layout_height="300dp" />
 
+       <me.tmgg.viewsdemoapp.widgets.ForegroundImageView
+           android:layout_width="80dp"
+           android:id="@+id/foreground"
+           android:src="@drawable/test_goods"
+           android:layout_height="80dp"/>
+
 
 
 

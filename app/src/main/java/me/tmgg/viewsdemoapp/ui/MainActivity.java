@@ -68,6 +68,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_scrollImageView).setOnClickListener(view->{
             startActivity(new Intent(getBaseContext(),SimpleListActivity.class));
         });
+        findViewById(R.id.foreground).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         AbilityMapView abilityMapView = findViewById(R.id.abilityView);
 
         AbilityBean 生存 = new AbilityBean(90f, "生存");

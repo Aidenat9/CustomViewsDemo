@@ -88,9 +88,6 @@ public class ImageDetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ElasticDragDismissFrameLayout dragDismissFrameLayout = view.findViewById(R.id.dragDismissFrameLayout);
-        scaleImageView = view.findViewById(R.id.iv_picture);
-        dragDismissFrameLayout.setDragElasticity(2.0f);
-        dragDismissFrameLayout.halfDistanceRequired();
         dragDismissFrameLayout.addListener(new ElasticDragDismissFrameLayout.ElasticDragDismissCallback() {
             @Override
             public void onDragDismissed() {
@@ -104,6 +101,9 @@ public class ImageDetailFragment extends Fragment {
                 }
             }
         });
+        dragDismissFrameLayout.setDragElasticity(2.0f);
+        dragDismissFrameLayout.halfDistanceRequired();
+        scaleImageView = view.findViewById(R.id.iv_picture);
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
             scaleImageView.setTransitionName(ImageConstants.IMAGE_SOURCE[mCurrentPosition]);
         }

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/ViewsDemoApp.iml" filepath="$PROJECT_DIR$/ViewsDemoApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseRvAdapterLibrary/baseRvAdapterLibrary.iml" filepath="$PROJECT_DIR$/baseRvAdapterLibrary/baseRvAdapterLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myaccessibilityservice/myaccessibilityservice.iml" filepath="$PROJECT_DIR$/myaccessibilityservice/myaccessibilityservice.iml" />
     </modules>
   </component>
 </project>
