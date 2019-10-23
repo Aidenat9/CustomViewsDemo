@@ -53,4 +53,22 @@
     </declare-styleable>
 
 
+
+<declare-styleable name="SubsamplingScaleImageViewSharedTransition">
+    <attr name="imageViewScaleType">
+        <enum name="centerCrop" value="1" />
+        <enum name="fitCenter" value="0" />
+    </attr>
+    <attr name="subsamplingImageViewScaleType">
+        <enum name="centerCrop" value="1" />
+        <enum name="fitCenter" value="0" />
+    </attr>
+    <attr name="transitionDirection">
+        <enum name="auto" value="0" />
+        <enum name="entering" value="1" />
+        <enum name="exiting" value="2" />
+    </attr>
+</declare-styleable>
+
+
 </resources>

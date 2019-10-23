@@ -1,11 +1,8 @@
 package me.tmgg.viewsdemoapp.picpreview;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.transition.Transition;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 
 import me.tmgg.viewsdemoapp.R;
 
@@ -23,8 +20,9 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<RecyclerCardAdapte
 
 	private Context             mContext;
 	private OnItemClickListener mListener;
+    private RequestOptions options;
 
-	public interface OnItemClickListener {
+    public interface OnItemClickListener {
 
 		void onItemClick(View view, int position);
 	}
@@ -49,25 +47,20 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<RecyclerCardAdapte
 
 	@Override
 	public void onBindViewHolder(@NonNull CardHolder holder, int position) {
+        if(null==options){
+            options = new RequestOptions();
+            options.placeholder(R.drawable.ic_launcher).error(R.drawable.ic_launcher).dontAnimate().diskCacheStrategy(DiskCacheStrategy.ALL);
+        }
 		Glide.with(mContext).asBitmap().load(ImageConstants.IMAGE_SOURCE[position])
-				.into(new CustomTarget<Bitmap>() {
-					@Override
-					public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-						holder.mAlbumImage.setImageBitmap((resource));
-					}
-
-					@Override
-					public void onLoadCleared(@Nullable Drawable placeholder) {
-						holder.mAlbumImage.setImageBitmap(null);
-					}
-				});
+				.apply(options)
+				.into(holder.mAlbumImage);
 		/**
 		 * 设置共享元素的名称
 		 */
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-			holder.mAlbumImage.setTransitionName(ImageConstants.IMAGE_SOURCE[position]);
+			holder.mAlbumImage.setTransitionName(ImageConstants.IMAGE_SOURCE[position]+position);
 		}
-		holder.mAlbumImage.setTag(ImageConstants.IMAGE_SOURCE[position]);
+		holder.mAlbumImage.setTag(ImageConstants.IMAGE_SOURCE[position]+position);
 	}
 
 	@Override

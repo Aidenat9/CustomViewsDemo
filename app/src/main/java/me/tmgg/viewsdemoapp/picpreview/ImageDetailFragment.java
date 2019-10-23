@@ -12,15 +12,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
 import me.tmgg.viewsdemoapp.R;
 
@@ -36,7 +38,7 @@ public class ImageDetailFragment extends Fragment {
 
     private Context mContext;
     private AppCompatActivity mActivity;
-    private ImageView scaleImageView;
+    private SubsamplingScaleImageView scaleImageView;
 
     public ImageDetailFragment() {
         // Required empty public constructor
@@ -70,6 +72,11 @@ public class ImageDetailFragment extends Fragment {
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -94,7 +101,7 @@ public class ImageDetailFragment extends Fragment {
                 super.onDragDismissed();
                 if (null != mActivity && mActivity instanceof ImagePreviewActivity) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        mActivity.finishAfterTransition();
+                        mActivity.supportFinishAfterTransition();
                     } else {
                         mActivity.finish();
                     }
@@ -105,17 +112,23 @@ public class ImageDetailFragment extends Fragment {
         dragDismissFrameLayout.halfDistanceRequired();
         scaleImageView = view.findViewById(R.id.iv_picture);
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-            scaleImageView.setTransitionName(ImageConstants.IMAGE_SOURCE[mCurrentPosition]);
+            scaleImageView.setTransitionName(ImageConstants.IMAGE_SOURCE[mCurrentPosition]+mCurrentPosition);
         }
         Glide.with(mContext).asBitmap().load(ImageConstants.IMAGE_SOURCE[mCurrentPosition]).into(new CustomTarget<Bitmap>() {
             @Override
             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                scaleImageView.setImageBitmap((resource));
+                scaleImageView.setImage(ImageSource.bitmap(resource));
                 startPostponedEnterTransition2();
             }
 
             @Override
             public void onLoadCleared(@Nullable Drawable placeholder) {
+            }
+
+            @Override
+            public void onLoadFailed(@Nullable Drawable errorDrawable) {
+                Log.e("image: ","loadFailed");
+                scaleImageView.setImage(ImageSource.resource(R.drawable.ic_golf));
                 startPostponedEnterTransition2();
             }
         });
@@ -181,9 +194,9 @@ public class ImageDetailFragment extends Fragment {
      */
     private void startPostponedEnterTransition2() {
         if (mCurrentPosition == mStartPosition) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mActivity.startPostponedEnterTransition();
-            }
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                mActivity.startPostponedEnterTransition();
+//            }
             scaleImageView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
                 @Override
                 public boolean onPreDraw() {

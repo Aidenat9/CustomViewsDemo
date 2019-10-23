@@ -31,7 +31,7 @@ class ArcView : View {
         attrs?.let {
             val typedArray = context?.obtainStyledAttributes(it, R.styleable.ArcView)
             color = typedArray?.getColor(R.styleable.ArcView_color, Color.GREEN)
-            typedArray?.recycle()
+            return@let typedArray?.recycle()
         }
         paint = Paint(Paint.ANTI_ALIAS_FLAG)
         paint!!.color = color!!

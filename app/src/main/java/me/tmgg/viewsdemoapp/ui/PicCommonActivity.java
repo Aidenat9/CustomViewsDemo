@@ -13,6 +13,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 
 import java.util.List;
 import java.util.Map;
@@ -45,6 +46,9 @@ public class PicCommonActivity extends AppCompatActivity {
         gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(new RecyclerCardAdapter(this, (view, position) -> {
+            if(null==view){
+                return;
+            }
             Intent intent = new Intent(context, ImagePreviewActivity.class);
             intent.putExtra(ImagePreviewActivity.EXTRA_START_POSITION, position);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -54,7 +58,6 @@ public class PicCommonActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }));
-
     }
 
     private void initShareElement() {
@@ -65,16 +68,16 @@ public class PicCommonActivity extends AppCompatActivity {
                 public void onMapSharedElements(List<String> names, Map<String, View> sharedElements) {
                     if (mReenterState != null) {
                         //从别的界面返回当前界面
-                        Log.e("tag","111从别的界面返回当前界面");
                         int startingPosition = mReenterState.getInt(EXTRA_START_POSITION);
                         int currentPosition = mReenterState.getInt(EXTRA_CURRENT_POSITION);
+                        Log.e("tag","111从别的界面返回当前界面 current: "+currentPosition+"  starting: "+startingPosition);
                         if (startingPosition != currentPosition) {
-                            String newTransitionName = ImageConstants.IMAGE_SOURCE[currentPosition];
+                            String newTransitionName = ImageConstants.IMAGE_SOURCE[currentPosition]+currentPosition;
                             View newSharedElement = recyclerView.findViewWithTag(newTransitionName);
                             if (newSharedElement != null) {
                                 names.clear();
-                                names.add(newTransitionName);
                                 sharedElements.clear();
+                                names.add(newTransitionName);
                                 sharedElements.put(newTransitionName, newSharedElement);
                                 setExitSharedElementCallback(new SharedElementCallback() {
                                 });
@@ -95,13 +98,22 @@ public class PicCommonActivity extends AppCompatActivity {
         mReenterState = new Bundle(data.getExtras());
         int startingPosition = mReenterState.getInt(EXTRA_START_POSITION);
         int currentPosition = mReenterState.getInt(EXTRA_CURRENT_POSITION);
-        Log.e("tag","111onActivityReenter----"+currentPosition);
         if (startingPosition != currentPosition) {
             int firstVisibleItemPosition = gridLayoutManager.findFirstVisibleItemPosition();
             int lastVisibleItemPosition = gridLayoutManager.findLastVisibleItemPosition();
             if(currentPosition>lastVisibleItemPosition||currentPosition<firstVisibleItemPosition){
+                Log.e("tag","111onActivityReenter----当前item处于隐藏"+currentPosition);
 //                overridePendingTransition(R.anim.alpha_exit,0);
+                gridLayoutManager.scrollToPosition(currentPosition);
+                recyclerView.getViewTreeObserver().addOnDrawListener(new ViewTreeObserver.OnDrawListener() {
+                    @Override
+                    public void onDraw() {
+                        Log.e("tag","列表重新布局后");
+                        initShareElement();
+                    }
+                });
             }else{
+                Log.e("tag","111onActivityReenter----当前item显示在window"+currentPosition);
                 initShareElement();
             }
         }

@@ -1,4 +1,5 @@
 <transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
     android:interpolator="@android:interpolator/fast_out_slow_in">
     <fade />
+    <transition class="me.tmgg.viewsdemoapp.widgets.SubsamplingScaleImageViewSharedTransition"/>
 </transitionSet>

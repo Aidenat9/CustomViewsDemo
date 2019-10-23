@@ -1,6 +1,5 @@
 package me.tmgg.viewsdemoapp.picpreview;
 
-import android.annotation.SuppressLint;
 import android.app.SharedElementCallback;
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,16 +15,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 import java.util.Map;
 
-import kotlin.jvm.internal.Intrinsics;
-import me.tmgg.viewsdemoapp.ui.PicCommonActivity;
 import me.tmgg.viewsdemoapp.R;
+import me.tmgg.viewsdemoapp.ui.PicCommonActivity;
 
 /**
  * @author sunwei
@@ -44,25 +41,10 @@ public class ImagePreviewActivity extends AppCompatActivity {
 
     private ImageDetailFragment mCurrentDetailsFragment;
     private int imageSize;
-
-    public final void setStatusBarColor(int i) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            Window window = getWindow();
-            kotlin.jvm.internal.Intrinsics.checkNotNull((Object) window, "window");
-            View decorView = window.getDecorView();
-            kotlin.jvm.internal.Intrinsics.checkNotNull((Object) decorView, "decorView");
-            decorView.setSystemUiVisibility(3328);
-            Window window2 = getWindow();
-            Intrinsics.checkNotNull((Object) window2, "window");
-            window2.setStatusBarColor(i);
-        }
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ActivityHook.hookOrientation(this);
         super.onCreate(savedInstanceState);
-        setStatusBarColor(0);
         getWindow().getDecorView().setBackgroundColor(Color.TRANSPARENT);
         setContentView(R.layout.activity_image_preview);
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
@@ -91,7 +73,7 @@ public class ImagePreviewActivity extends AppCompatActivity {
                             Log.e("tag","222sharedElement == null");
                         } else if (mStartPosition != mCurrentPosition) {
                             //把原来的共享元素删除，添加新的共享元素数据
-                            Log.e("tag","222mStartPosition != mCurrentPosition");
+                            Log.e("tag","222mStartPosition != mCurrentPosition>>>");
                             names.clear();
                             sharedElements.clear();
                             names.add(sharedElement.getTransitionName());
@@ -126,7 +108,7 @@ public class ImagePreviewActivity extends AppCompatActivity {
         imageSize = ImageConstants.IMAGE_SOURCE.length;
         HackyViewPager viewPager = findViewById(R.id.view_pager);
         contentLoadingProgressBar = findViewById(R.id.loading_bar);
-        @SuppressLint("CutPasteId") TextView tvIndicator = findViewById(R.id.tv_pager_indicator);
+        TextView tvIndicator = findViewById(R.id.tv_pager_indicator);
         TextView tvSaveImage = findViewById(R.id.tv_pager_indicator);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager()));
