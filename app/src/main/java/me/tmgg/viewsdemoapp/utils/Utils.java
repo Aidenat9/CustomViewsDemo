@@ -1,6 +1,8 @@
 package me.tmgg.viewsdemoapp.utils;
 
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
@@ -21,4 +23,15 @@ public class Utils {
         DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
         return displayMetrics.heightPixels;
     }
+
+    public static Bitmap getBitmap(Resources res, int resId, int width) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(res, resId, options);
+        options.inJustDecodeBounds = false;
+        options.inDensity = options.outWidth;
+        options.inTargetDensity = width;
+        return BitmapFactory.decodeResource(res, resId, options);
+    }
+
 }

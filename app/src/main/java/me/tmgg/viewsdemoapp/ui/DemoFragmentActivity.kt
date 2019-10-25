@@ -63,6 +63,9 @@ class DemoFragmentActivity : AppCompatActivity() {
             R.id.paletee_blur ->{
                 transaction.replace(R.id.framelayout, PaleteeBlurFragment())
             }
+            R.id.scalableImageView->{
+                transaction.replace(R.id.framelayout, ScalableImageViewFragment())
+            }
             else -> {
             }
         }
