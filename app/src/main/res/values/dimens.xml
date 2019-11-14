@@ -17,4 +17,6 @@
 <resources>
     <dimen name="shape_size">96dp</dimen>
     <dimen name="elevation_step">8dp</dimen>
+    <dimen name="padding_normal">16dp</dimen>
+
 </resources>

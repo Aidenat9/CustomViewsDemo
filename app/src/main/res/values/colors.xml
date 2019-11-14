@@ -19,6 +19,7 @@
 
     <color name="rippelColor">#ff303F9F</color>
     <color name="normalColor">#ffdddddd</color>
-
+    <color name="page_indicators">#999999</color>
+    <color name="page_indicator_selected">#FFFFFF</color>
 
 </resources>

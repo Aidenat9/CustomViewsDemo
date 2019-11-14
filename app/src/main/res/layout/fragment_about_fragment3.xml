@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="100dp"
+    android:id="@+id/libs_list_background"
+    android:background="#eeeeee"
+    tools:context=".fragments.AboutFragment1">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_launcher"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="5dp"
+        android:id="@+id/libraries_intro"
+        android:textSize="22sp"
+        android:text="PingWest品玩11月14日讯，据腾讯科技报道，滴滴出行于11月13日升级的快车拼车“拼成出发”的新功能，乘客需要选择出发时间，出发前先匹配顺路拼友之后再叫车，乘客出发时可以享受稳定的拼成低价。与即将恢复试运营的顺风车相比，两者之间在性质、形式、供给、出行效率、定价原理、司乘关系与乘车规则方面存在差异：
+
+1．性质不同。拼车是快车的衍生，快车拼车和顺风车是性质不同的产品，拼车是快车的衍生，是快车网约车营运性质；而顺风车是私家车合乘，是非营运性质。
+
+2．形式不同。打拼车，是呼叫附近空闲的快车司机来接你，匹配顺路的拼友；打顺风车，是车主自身有出行需求，能和你顺路出行。
+
+3．供给不同。拼车的快车运力供给相对稳定，车多，更容易叫车；顺风车车主的出行更加灵活，视车主的出行时间和习惯而定。
+
+4．出行效率不同。叫拼车，系统来给快车司机派单，空驶的快车、已坐上拼友的载人车，一起都能来接你；叫顺风车，系统提供顺路程度等参考数据，车主和乘客均可邀请顺路人，邀请确认后便可同行。
+
+5．定价原理不同。拼车的定价，基于快车计价规则，是按照快车预估价，给出拼成功的折扣；顺风车的定价，基于车主和乘客分摊油费。
+
+6．司乘关系不同。拼车中，司机是服务者，乘客是被服务的；顺风车中，车主和乘客平等互助，车主顺路拉人，补贴爱车油费
+
+7 乘车规则不同。拼车中，乘客要按端内起始点上下车，遵守乘车规则和接送顺序；顺风车中，车主和乘客平等协商，彼此遵守约定和乘车规则，按时到达约定上车地点、不随意取消等。"
+        android:layout_height="wrap_content"
+        />
+</FrameLayout>

@@ -58,6 +58,20 @@
                android:layout_height="match_parent" />
        </me.tmgg.viewsdemoapp.widgets.SinkFrameLayout>
        <Button
+           android:text="button_sink"
+           android:background="#27c08c"
+           android:clickable="true"
+           android:id="@+id/sink"
+           android:stateListAnimator="@animator/button_sink"
+           style="@style/button_default_style"/>
+       <Button
+           android:text="active_raise"
+           android:id="@+id/raise"
+           android:background="#999999"
+           android:clickable="true"
+           android:stateListAnimator="@animator/active_raise"
+           style="@style/button_default_style"/>
+       <Button
            android:id="@+id/btn_valueAnim"
            android:text="valueAnim"
            style="@style/button_default_style"/>

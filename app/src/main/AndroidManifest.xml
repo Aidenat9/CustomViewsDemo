@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.SimpleListActivity"></activity>
+        <activity android:name=".ui.about.AboutActivity"
+            android:theme="@style/About"/>
+        <activity android:name=".ui.SimpleListActivity" />
         <activity android:name=".ui.SystemWindowActivity" />
         <activity android:name=".ui.ViewsActivity" />
         <activity android:name=".ui.ScheduledThreadpoolActivity" />

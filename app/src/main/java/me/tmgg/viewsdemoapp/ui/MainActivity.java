@@ -2,12 +2,14 @@ package me.tmgg.viewsdemoapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import java.util.ArrayList;
 
 import me.tmgg.viewsdemoapp.R;
+import me.tmgg.viewsdemoapp.ui.about.AboutActivity;
 import me.tmgg.viewsdemoapp.widgets.LoadingText;
 import me.tmgg.viewsdemoapp.widgets.ability.AbilityBean;
 import me.tmgg.viewsdemoapp.widgets.ability.AbilityMapView;
@@ -61,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
         });
         findViewById(R.id.btn_views).setOnClickListener(view->{
             startActivity(new Intent(getBaseContext(),ViewsActivity.class));
+        });
+        findViewById(R.id.sink).setOnClickListener(view->{
+        });
+        findViewById(R.id.raise).setOnClickListener(view->{
+            Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this).toBundle();
+            startActivity(new Intent(getBaseContext(), AboutActivity.class),bundle);
         });
         findViewById(R.id.btn_alertwindow).setOnClickListener(view->{
             startActivity(new Intent(getBaseContext(),SystemWindowActivity.class));

@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingDefaultResource">
-    <item android:state_enabled="true" android:state_pressed="true">
-        <objectAnimator android:duration="200"
-            android:propertyName="scaleX"
-            android:valueTo="0.55"
-            android:valueType="floatType"
-            />
+    <item android:state_pressed="false">
+       <set android:ordering="together">
+           <objectAnimator
+               android:duration="120"
+               android:propertyName="scaleX"
+               android:valueTo="1.0"
+               android:valueType="floatType" />
+           <objectAnimator
+               android:duration="120"
+               android:propertyName="scaleY"
+               android:valueTo="1.0"
+               android:valueType="floatType" />
+       </set>
     </item>
 
-    <item >
-        <objectAnimator android:duration="200"
-            android:propertyName="scaleX"
-            android:valueTo="1.0"
-            android:valueType="floatType"
-            />
+    <item android:state_pressed="true">
+        <set android:ordering="together">
+            <objectAnimator
+                android:duration="120"
+                android:propertyName="scaleX"
+                android:valueTo="0.55"
+                android:valueType="floatType" />
+            <objectAnimator
+                android:duration="120"
+                android:propertyName="scaleY"
+                android:valueTo="0.55"
+                android:valueType="floatType" />
+        </set>
     </item>
-
 </selector>
