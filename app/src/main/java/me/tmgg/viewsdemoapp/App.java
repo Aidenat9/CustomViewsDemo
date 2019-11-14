@@ -1,6 +1,8 @@
 package me.tmgg.viewsdemoapp;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.bumptech.glide.request.target.ViewTarget;
@@ -32,5 +34,11 @@ public class App extends Application {
         //保存上传 异常的逻辑
         Log.e(TAG, "exitCrash: "+ex.getMessage() );
         System.exit(0);
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
     }
 }
