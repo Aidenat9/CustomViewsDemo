@@ -2,7 +2,6 @@ package me.tmgg.viewsdemoapp.picpreview;
 
 import android.app.SharedElementCallback;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -45,7 +44,6 @@ public class ImagePreviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         ActivityHook.hookOrientation(this);
         super.onCreate(savedInstanceState);
-        getWindow().getDecorView().setBackgroundColor(Color.TRANSPARENT);
         setContentView(R.layout.activity_image_preview);
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
             supportPostponeEnterTransition();

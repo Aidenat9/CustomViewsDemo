@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <slide
+        android:duration="200"
+        android:slideEdge="top">
+        <targets>
+            <target android:targetId="@id/fl1" />
+            <target android:excludeId="@android:id/navigationBarBackground" />
+            <target android:excludeId="@android:id/statusBarBackground" />
+        </targets>
+    </slide>
+    <slide
+        android:duration="200"
+        android:slideEdge="bottom">
+        <targets>
+            <target android:targetId="@id/fl22" />
+            <target android:excludeId="@android:id/navigationBarBackground" />
+            <target android:excludeId="@android:id/statusBarBackground" />
+        </targets>
+    </slide>
+    <changeBounds android:duration="200">
+        <targets>
+            <target android:targetId="@id/btn22" />
+        </targets>
+    </changeBounds>
+    <fade
+        android:duration="200"
+        android:startDelay="200">
+        <targets>
+            <target android:targetId="@id/iv22"></target>
+        </targets>
+    </fade>
+</transitionSet>

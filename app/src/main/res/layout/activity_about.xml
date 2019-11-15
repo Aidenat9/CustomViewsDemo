@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<me.tmgg.viewsdemoapp.picpreview.ElasticDragDismissFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<me.tmgg.viewsdemoapp.ui.about.ElasticDragDismissFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dragFramelayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:dragDismissScale="0.8"
+    app:dragDismissDistance="200dp"
     android:clipToPadding="false"
     tools:context=".ui.about.AboutActivity">
 
@@ -33,4 +35,4 @@
         </FrameLayout>
     </android.support.v4.widget.NestedScrollView>
 
-</me.tmgg.viewsdemoapp.picpreview.ElasticDragDismissFrameLayout>
+</me.tmgg.viewsdemoapp.ui.about.ElasticDragDismissFrameLayout>

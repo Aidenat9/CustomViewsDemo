@@ -61,8 +61,7 @@
     </style>
 
     <style name="WebViewTheme" parent="AppTheme">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">false</item>
     </style>
 
     <style name="TabWidget">
@@ -72,7 +71,11 @@
     </style>
     <style name="About" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/trancent</item>
         <item name="android:windowEnterTransition">@transition/about_enter</item>
         <item name="android:windowReturnTransition">@transition/about_return</item>
+    </style>
+    <style name="Transition" parent="AppTheme">
+        <item name="android:windowActivityTransitions">true</item>
     </style>
 </resources>

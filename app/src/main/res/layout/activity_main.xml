@@ -72,6 +72,13 @@
            android:stateListAnimator="@animator/active_raise"
            style="@style/button_default_style"/>
        <Button
+           android:text="transitions"
+           android:id="@+id/transitions"
+           android:background="#327846"
+           android:transitionName="button"
+           android:stateListAnimator="@animator/active_raise"
+           style="@style/button_default_style"/>
+       <Button
            android:id="@+id/btn_valueAnim"
            android:text="valueAnim"
            style="@style/button_default_style"/>

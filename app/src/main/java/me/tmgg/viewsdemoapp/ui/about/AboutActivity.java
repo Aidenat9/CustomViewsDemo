@@ -19,7 +19,6 @@ import me.tmgg.viewsdemoapp.R;
 import me.tmgg.viewsdemoapp.fragments.AboutFragment1;
 import me.tmgg.viewsdemoapp.fragments.AboutFragment2;
 import me.tmgg.viewsdemoapp.fragments.AboutFragment3;
-import me.tmgg.viewsdemoapp.picpreview.ElasticDragDismissFrameLayout;
 
 /**
  * @author sunwei
@@ -38,8 +37,7 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
         ViewPager viewPager = findViewById(R.id.pager);
         InkPageIndicator indicator = findViewById(R.id.indicator);
-        me.tmgg.viewsdemoapp.picpreview.ElasticDragDismissFrameLayout dismissFrameLayout = findViewById(R.id.dragFramelayout2);
-        dismissFrameLayout.setDragElasticity(2.0f);
+        me.tmgg.viewsdemoapp.ui.about.ElasticDragDismissFrameLayout dismissFrameLayout = findViewById(R.id.dragFramelayout2);
         fragments.add(new AboutFragment1());
         fragments.add(new AboutFragment2());
         fragments.add(new AboutFragment3());
@@ -69,10 +67,9 @@ public class AboutActivity extends AppCompatActivity {
 
             }
         });
-        dismissFrameLayout.addListener(new ElasticDragDismissFrameLayout.ElasticDragDismissCallback() {
+        dismissFrameLayout.addListener(new ElasticDragDismissFrameLayout.SystemChromeFader(AboutActivity.this){
             @Override
             public void onDragDismissed() {
-                super.onDragDismissed();
                 if (dismissFrameLayout.getTranslationY() > 0) {
                     Transition transition = TransitionInflater.from(AboutActivity.this).inflateTransition(R.transition.about_return_downward);
                     getWindow().setReturnTransition(transition);

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<me.tmgg.viewsdemoapp.ui.about.ElasticDragDismissFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dragDismissFrameLayout"
     android:layout_width="match_parent"
+    app:dragDismissDistance="120dp"
+    app:dragDismissScale="0.8"
     android:layout_height="match_parent"
     tools:context=".picpreview.ImagePreviewActivity">
 
@@ -47,4 +51,4 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
     </FrameLayout>
-</FrameLayout>
+</me.tmgg.viewsdemoapp.ui.about.ElasticDragDismissFrameLayout>

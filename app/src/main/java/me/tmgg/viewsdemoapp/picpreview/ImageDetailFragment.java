@@ -25,6 +25,7 @@ import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
 import me.tmgg.viewsdemoapp.R;
+import me.tmgg.viewsdemoapp.ui.about.ElasticDragDismissFrameLayout;
 
 /**
  * @author sunwei
@@ -95,10 +96,9 @@ public class ImageDetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ElasticDragDismissFrameLayout dragDismissFrameLayout = view.findViewById(R.id.dragDismissFrameLayout);
-        dragDismissFrameLayout.addListener(new ElasticDragDismissFrameLayout.ElasticDragDismissCallback() {
+        dragDismissFrameLayout.addListener(new ElasticDragDismissFrameLayout.SystemChromeFader(mActivity){
             @Override
             public void onDragDismissed() {
-                super.onDragDismissed();
                 if (null != mActivity && mActivity instanceof ImagePreviewActivity) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         mActivity.supportFinishAfterTransition();
@@ -108,8 +108,6 @@ public class ImageDetailFragment extends Fragment {
                 }
             }
         });
-        dragDismissFrameLayout.setDragElasticity(2.0f);
-        dragDismissFrameLayout.halfDistanceRequired();
         scaleImageView = view.findViewById(R.id.iv_picture);
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
             scaleImageView.setTransitionName(ImageConstants.IMAGE_SOURCE[mCurrentPosition]+mCurrentPosition);

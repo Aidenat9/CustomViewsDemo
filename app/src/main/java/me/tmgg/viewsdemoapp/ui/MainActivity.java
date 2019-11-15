@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
             Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this).toBundle();
             startActivity(new Intent(getBaseContext(), AboutActivity.class),bundle);
         });
+        findViewById(R.id.transitions).setOnClickListener(view->{
+            ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this, view, view.getTransitionName());
+            startActivity(new Intent(getBaseContext(),TransitionActivity.class),optionsCompat.toBundle());
+        });
         findViewById(R.id.btn_alertwindow).setOnClickListener(view->{
             startActivity(new Intent(getBaseContext(),SystemWindowActivity.class));
         });
