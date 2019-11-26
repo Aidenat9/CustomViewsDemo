@@ -49,6 +49,10 @@
         android:title="demoDetailBehavior"
         app:showAsAction="collapseActionView"/>
     <item
+        android:id="@+id/heightBottomSheetDialog"
+        android:title="heightBottomSheetDialog"
+        app:showAsAction="collapseActionView"/>
+    <item
         android:id="@+id/diffFragment"
         android:title="diffUtilRecyclerView"
         app:showAsAction="collapseActionView"/>
