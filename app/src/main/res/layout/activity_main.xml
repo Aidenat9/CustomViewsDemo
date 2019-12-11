@@ -10,6 +10,11 @@
        android:layout_width="match_parent"
        android:orientation="vertical"
        android:layout_height="wrap_content">
+
+       <android.support.v7.widget.AppCompatAutoCompleteTextView
+           android:id="@+id/aptextview"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
        <Button
            android:id="@+id/btn_demo"
            style="@style/button_default_style"
